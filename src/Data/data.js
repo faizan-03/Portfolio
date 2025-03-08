@@ -6,13 +6,13 @@ import { BsCodeSlash } from "react-icons/bs";
 import { MdDesignServices } from "react-icons/md";
 
 // Import certificate images
-import awsFargate from "../assets/certificates/AWS Fargate.pdf";
-import containerSecurity from "../assets/certificates/Container SECURITY.pdf";
-import eksPremier from "../assets/certificates/EKS PREMIER.pdf";
-import introToContainers from "../assets/certificates/Intro to containers.pdf";
-import introToServerless from "../assets/certificates/Intro to serverless computing.pdf";
-import icsImage from "../assets/certificates/ics.png";
-import hcsImage from "../assets/certificates/hcs.png";
+import awsFargate from "../assets/Certificates/AWS Fargate.pdf";
+import containerSecurity from "../assets/Certificates/Container SECURITY.pdf";
+import eksPremier from "../assets/Certificates/EKS PREMIER.pdf";
+import introToContainers from "../assets/Certificates/Intro to containers.pdf";
+import introToServerless from "../assets/Certificates/Intro to serverless computing.pdf";
+import icsImage from "../assets/Certificates/ICS.png";
+import hcsImage from "../assets/Certificates/hcs.png";
 
 // Features Data
 export const featuresData = [ 
