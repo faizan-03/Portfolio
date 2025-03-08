@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Portfolio Website
 
 A modern, responsive portfolio website built with React, Tailwind CSS, and Framer Motion.
@@ -145,3 +146,7 @@ Upload the contents of the `build` folder to your hosting service of choice.
 ## License
 
 MIT License
+=======
+# Portfolio
+Portfolio Website
+>>>>>>> d43dd794145c9fa3bd2e21e5e20f58c6e519dfb8
