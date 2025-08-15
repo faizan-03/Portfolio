@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { FaEye, FaUsers, FaGlobe } from 'react-icons/fa';
 
@@ -12,6 +12,31 @@ const VisitorCounter = () => {
     countries: 0
   });
   const [isUsingMock, setIsUsingMock] = useState(true);
+  const [isFooterVisible, setIsFooterVisible] = useState(false);
+  const counterRef = useRef(null);
+
+  // Set up intersection observer to detect when footer is visible
+  useEffect(() => {
+    const footer = document.querySelector('footer');
+    
+    if (!footer) return;
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          // When footer becomes visible, hide the counter
+          setIsFooterVisible(entry.isIntersecting);
+        });
+      },
+      { threshold: 0.1 } // Trigger when 10% of the footer is visible
+    );
+    
+    observer.observe(footer);
+    
+    return () => {
+      if (footer) observer.unobserve(footer);
+    };
+  }, []);
 
   useEffect(() => {
     // Try to get real Google Analytics data first
@@ -100,7 +125,7 @@ const VisitorCounter = () => {
       className="flex items-center gap-2 bg-gradient-to-r from-gray-800/50 to-gray-700/50 backdrop-blur-sm rounded-lg p-2 border border-gray-600/30 hover:border-designColor/50 transition-all duration-300"
     >
       <div className="w-6 h-6 rounded-full bg-designColor/20 flex items-center justify-center flex-shrink-0">
-        <Icon className="text-designColor text-xs" />
+        {Icon && <Icon className="text-designColor text-xs" />}
       </div>
       <div className="min-w-0 flex-1">
         <motion.div 
@@ -119,10 +144,17 @@ const VisitorCounter = () => {
 
   return (
     <motion.div
+      ref={counterRef}
       initial={{ opacity: 0, x: -50 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.8, delay: 0.5 }}
-      className="fixed left-2 bottom-2 z-30 flex flex-col gap-2 max-w-[140px] hidden sm:flex"
+      animate={{ 
+        opacity: isFooterVisible ? 0 : 1, 
+        x: 0,
+        y: isFooterVisible ? 50 : 0
+      }}
+      transition={{ duration: 0.4 }}
+      className={`fixed left-2 bottom-2 z-30 flex flex-col gap-2 max-w-[140px] hidden sm:flex ${
+        isFooterVisible ? 'pointer-events-none' : ''
+      }`}
       title={isUsingMock ? 
         "Using simulated analytics data - See ANALYTICS_SETUP.md for instructions to implement real data" : 
         "Analytics data from Google Analytics simulation"}
