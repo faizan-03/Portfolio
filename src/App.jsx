@@ -15,12 +15,12 @@ import VisitorCounter from "./components/ui/VisitorCounter";
 import ProgressIndicator from "./components/ui/ProgressIndicator";
 import LoadingSkeleton from "./components/ui/LoadingSkeleton";
 
-// Google Analytics 4 Integration
+
 const GA_MEASUREMENT_ID = 'G-52MMBREFN6';
 
 function App() {
   useEffect(() => {
-    // Initialize Google Analytics
+    
     const script1 = document.createElement('script');
     script1.async = true;
     script1.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
@@ -56,13 +56,13 @@ function App() {
         transition={{ duration: 0.5 }}
         className="relative"
       >
-        {/* Progress Indicator */}
+        
         <ProgressIndicator />
         
-        {/* Theme Toggle */}
+       
         <ThemeToggle />
         
-        {/* Visitor Counter */}
+        
         <VisitorCounter />
 
         <div className="w-full h-auto bg-bodycolor text-lightText transition-colors duration-300">

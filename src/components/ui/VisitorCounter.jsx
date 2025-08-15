@@ -1,21 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { FaEye, FaUsers, FaGlobe } from 'react-icons/fa';
-
-// Import real analytics functions
 import { getRealTimeData } from '../../utils/analytics';
 
 const VisitorCounter = () => {
-  const [stats, setStats] = useState({
-    visitors: 0,
-    views: 0,
-    countries: 0
-  });
+  const [stats, setStats] = useState({ visitors: 0, views: 0, countries: 0 });
   const [isUsingMock, setIsUsingMock] = useState(true);
   const [isFooterVisible, setIsFooterVisible] = useState(false);
   const counterRef = useRef(null);
 
-  // Set up intersection observer to detect when footer is visible
   useEffect(() => {
     const footer = document.querySelector('footer');
     
@@ -24,11 +17,10 @@ const VisitorCounter = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
-          // When footer becomes visible, hide the counter
           setIsFooterVisible(entry.isIntersecting);
         });
       },
-      { threshold: 0.1 } // Trigger when 10% of the footer is visible
+      { threshold: 0.1 }
     );
     
     observer.observe(footer);
@@ -39,7 +31,6 @@ const VisitorCounter = () => {
   }, []);
 
   useEffect(() => {
-    // Try to get real Google Analytics data first
     const fetchRealAnalytics = async () => {
       try {
         const data = await getRealTimeData();
@@ -49,26 +40,21 @@ const VisitorCounter = () => {
           return true;
         }
         return false;
-      } catch (error) {
-        console.warn("Failed to fetch real analytics data:", error);
+      } catch {
         return false;
       }
     };
     
     const updateStats = () => {
-      // Only use mock data if real data couldn't be fetched
       if (isUsingMock) {
-        // Using realistic base numbers for your portfolio
         const baseVisitors = 2847;
         const baseViews = 5234;
         const baseCountries = 34;
         
-        // Get today's date to create daily increments
         const today = new Date().toDateString();
         const lastUpdate = localStorage.getItem('analytics_date');
         
         if (lastUpdate !== today) {
-          // New day, reset increments
           localStorage.setItem('analytics_date', today);
           localStorage.setItem('daily_visitors', '0');
           localStorage.setItem('daily_views', '0');
@@ -79,7 +65,6 @@ const VisitorCounter = () => {
         const dailyViews = parseInt(localStorage.getItem('daily_views') || '0');
         const dailyCountries = parseInt(localStorage.getItem('daily_countries') || '0');
         
-        // Small realistic increments
         const newDailyVisitors = dailyVisitors + Math.floor(Math.random() * 2);
         const newDailyViews = dailyViews + Math.floor(Math.random() * 4);
         const newDailyCountries = dailyCountries + (Math.random() > 0.9 ? 1 : 0);
@@ -91,7 +76,7 @@ const VisitorCounter = () => {
         setStats({
           visitors: baseVisitors + newDailyVisitors,
           views: baseViews + newDailyViews,
-          countries: Math.min(baseCountries + newDailyCountries, 50) // Cap at 50 countries
+          countries: Math.min(baseCountries + newDailyCountries, 50)
         });
       }
     };
@@ -105,7 +90,6 @@ const VisitorCounter = () => {
 
     initializeCounter();
     
-    // Set up interval for updates - every minute for mock data, every 2 minutes for real data
     const interval = setInterval(() => {
       if (isUsingMock) {
         updateStats();
@@ -115,7 +99,7 @@ const VisitorCounter = () => {
     }, isUsingMock ? 60000 : 120000);
     
     return () => clearInterval(interval);
-  }, [isUsingMock]); // Add isUsingMock as a dependency
+  }, [isUsingMock]);
 
   const StatItem = ({ icon: Icon, label, value, delay }) => (
     <motion.div

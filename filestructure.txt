@@ -1,5 +1,9 @@
 |-- .env
 |-- .gitignore
+|-- .kiro
+    |-- specs
+        |-- theme-ui-improvements
+            |-- tasks.md
 |-- ANALYTICS_SETUP.md
 |-- eslint.config.js
 |-- index.html
