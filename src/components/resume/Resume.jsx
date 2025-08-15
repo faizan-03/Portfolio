@@ -7,10 +7,10 @@ import Experience from "./Experience"
 import { motion } from "framer-motion";
 
 const Resume = () => {
-  const [educationData, setEducationData] = useState(true);
-  const [skillData, setSkillData] = useState(false);
-  const [experienceData, setExperienceData] = useState(false);
-  const [achievementData, setAchievementData] = useState(false);
+  const [educationTab, setEducationTab] = useState(true);
+  const [skillTab, setSkillTab] = useState(false);
+  const [experienceTab, setExperienceTab] = useState(false);
+  const [achievementTab, setAchievementTab] = useState(false);
 
   const fadeInVariants = {
     initial: { opacity: 0, y: 20 },
@@ -42,10 +42,10 @@ const Resume = () => {
       >
         <ul className="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
           {[
-            { state: educationData, setter: setEducationData, label: "Education" },
-            { state: skillData, setter: setSkillData, label: "Professional Skills" },
-            { state: experienceData, setter: setExperienceData, label: "Experience" },
-            { state: achievementData, setter: setAchievementData, label: "Achievements" }
+            { state: educationTab, setter: setEducationTab, label: "Education" },
+            { state: skillTab, setter: setSkillTab, label: "Professional Skills" },
+            { state: experienceTab, setter: setExperienceTab, label: "Experience" },
+            { state: achievementTab, setter: setAchievementTab, label: "Achievements" }
           ].map((item, index) => (
             <motion.li
               key={item.label}
@@ -53,10 +53,10 @@ const Resume = () => {
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.3, delay: index * 0.1 }}
               onClick={() => {
-                setEducationData(false);
-                setSkillData(false);
-                setExperienceData(false);
-                setAchievementData(false);
+                setEducationTab(false);
+                setSkillTab(false);
+                setExperienceTab(false);
+                setAchievementTab(false);
                 item.setter(true);
               }}
               className={`${
@@ -77,10 +77,10 @@ const Resume = () => {
           transition={{ duration: 0.5 }}
           className="mt-10 md:mt-14 w-full"
         >
-          {educationData && <Education />}
-          {skillData && <Skills />}
-          {achievementData && <Achievement />}
-          {experienceData && <Experience />}
+          {educationTab && <Education />}
+          {skillTab && <Skills />}
+          {achievementTab && <Achievement />}
+          {experienceTab && <Experience />}
         </motion.div>
       </motion.div>
     </motion.section>

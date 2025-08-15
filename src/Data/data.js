@@ -106,7 +106,7 @@ export const projectsData = [
     src: null,
     technologies: [".NET Blazor", "C#", "Razor Pages", "JWT"],
     category: "Web App",
-    githubLink: null,
+    githubLink: "https://github.com/faizan-03",
     liveLink: null,
     date: "Sep 2024 - Dec 2024"
   },
@@ -117,7 +117,7 @@ export const projectsData = [
     src: null,
     technologies: ["React", "Tailwind CSS", "DaisyUI", "JavaScript"],
     category: "Web App",
-    githubLink: null,
+    githubLink: "https://github.com/faizan-03",
     liveLink: null,
     date: "2024"
   },
@@ -135,11 +135,11 @@ export const projectsData = [
   {
     id: 4,
     title: "AI-Powered Chatbot",
-    des: "Real-time messaging system with authentication, responsive UI, and profile management. Implemented secure communication using Zustand-based state handling and seamless UX design.",
+    des: "Real-time messaging system with authentication, responsive UI, and profile management. Built with MERN stack architecture, WebSocket for real-time communication, and Gemini API 1.5 for intelligent responses.",
     src: null,
-    technologies: ["Flutter", "Gemini 1.5 Flash API", "REST API", "Shared Preferences"],
-    category: "Mobile App",
-    githubLink: null,
+    technologies: ["MongoDB", "Express.js", "React", "Node.js", "WebSocket", "Gemini API 1.5"],
+    category: "Web App",
+    githubLink: "https://github.com/faizan-03",
     liveLink: null,
     date: "Dec 2024 - Jan 2025"
   },

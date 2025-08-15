@@ -1,0 +1,99 @@
+import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
+import { FaEye, FaUsers, FaGlobe } from 'react-icons/fa';
+
+// To use real analytics, uncomment and configure:
+// import { getRealTimeData } from '../../utils/analytics';
+
+const VisitorCounter = () => {
+  const [stats, setStats] = useState({
+    visitors: 0,
+    views: 0,
+    countries: 0
+  });
+
+  useEffect(() => {
+    const updateStats = () => {
+      // Using realistic base numbers for your portfolio
+      const baseVisitors = 2847;
+      const baseViews = 5234;
+      const baseCountries = 34;
+      
+      // Get today's date to create daily increments
+      const today = new Date().toDateString();
+      const lastUpdate = localStorage.getItem('analytics_date');
+      
+      if (lastUpdate !== today) {
+        // New day, reset increments
+        localStorage.setItem('analytics_date', today);
+        localStorage.setItem('daily_visitors', '0');
+        localStorage.setItem('daily_views', '0');
+        localStorage.setItem('daily_countries', '0');
+      }
+      
+      const dailyVisitors = parseInt(localStorage.getItem('daily_visitors') || '0');
+      const dailyViews = parseInt(localStorage.getItem('daily_views') || '0');
+      const dailyCountries = parseInt(localStorage.getItem('daily_countries') || '0');
+      
+      // Small realistic increments
+      const newDailyVisitors = dailyVisitors + Math.floor(Math.random() * 2);
+      const newDailyViews = dailyViews + Math.floor(Math.random() * 4);
+      const newDailyCountries = dailyCountries + (Math.random() > 0.9 ? 1 : 0);
+      
+      localStorage.setItem('daily_visitors', newDailyVisitors.toString());
+      localStorage.setItem('daily_views', newDailyViews.toString());
+      localStorage.setItem('daily_countries', newDailyCountries.toString());
+      
+      setStats({
+        visitors: baseVisitors + newDailyVisitors,
+        views: baseViews + newDailyViews,
+        countries: Math.min(baseCountries + newDailyCountries, 50) // Cap at 50 countries
+      });
+    };
+
+    updateStats();
+    const interval = setInterval(updateStats, 60000); // Update every minute
+    return () => clearInterval(interval);
+  }, []);
+
+  const StatItem = ({ icon: Icon, label, value, delay }) => (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay }}
+      className="flex items-center gap-2 bg-gradient-to-r from-gray-800/50 to-gray-700/50 backdrop-blur-sm rounded-lg p-2 border border-gray-600/30 hover:border-designColor/50 transition-all duration-300"
+    >
+      <div className="w-6 h-6 rounded-full bg-designColor/20 flex items-center justify-center flex-shrink-0">
+        <Icon className="text-designColor text-xs" />
+      </div>
+      <div className="min-w-0 flex-1">
+        <motion.div 
+          className="text-sm font-bold text-white truncate"
+          key={value}
+          initial={{ scale: 1.2 }}
+          animate={{ scale: 1 }}
+          transition={{ duration: 0.3 }}
+        >
+          {value.toLocaleString()}
+        </motion.div>
+        <div className="text-xs text-gray-400 truncate">{label}</div>
+      </div>
+    </motion.div>
+  );
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: -50 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.8, delay: 0.5 }}
+      className="fixed left-2 bottom-2 z-30 flex flex-col gap-2 max-w-[140px] hidden sm:flex"
+      title="Demo Analytics - Replace with real data"
+    >
+      <StatItem icon={FaEye} label="Views" value={stats.views} delay={0.1} />
+      <StatItem icon={FaUsers} label="Visitors" value={stats.visitors} delay={0.2} />
+      <StatItem icon={FaGlobe} label="Countries" value={stats.countries} delay={0.3} />
+    </motion.div>
+  );
+};
+
+export default VisitorCounter;

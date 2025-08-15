@@ -1,103 +1,146 @@
 import React, { useState } from 'react';
 import Slider from "react-slick";
 import { RiStarFill } from "react-icons/ri";
-import { HiArrowRight, HiArrowLeft } from "react-icons/hi";
-import { FaQuoteLeft } from "react-icons/fa";
+import { FaChevronLeft, FaChevronRight, FaQuoteLeft } from "react-icons/fa";
 import Title from '../layouts/Title';
-import { quote } from "../../assets";
 import { motion } from "framer-motion";
 import testimonialData from "../../Data/testimonialData";
 
-// Modern Arrow components for the slider
-function SampleNextArrow(props) {
-  const { onClick } = props;
-  return (
-    <motion.div
-      whileHover={{ scale: 1.1, backgroundColor: "#028b7d" }}
-      whileTap={{ scale: 0.9 }}
-      className="w-12 h-12 bg-gradient-to-r from-gray-800 to-gray-700 hover:from-designColor hover:to-teal-600 duration-300 rounded-full text-xl text-gray-300 hover:text-white flex justify-center items-center absolute top-0 right-0 shadow-lg cursor-pointer z-10 border border-gray-600 hover:border-designColor"
-      onClick={onClick}
-    >
-      <HiArrowRight />
+const CustomPrevArrow = ({ onClick }) => (
+  <motion.button
+    whileHover={{
+      scale: 1.05,
+      backgroundColor: "rgba(2, 139, 125, 0.9)",
+      boxShadow: "0 10px 25px rgba(2, 139, 125, 0.3)",
+    }}
+    whileTap={{ scale: 0.95 }}
+    onClick={onClick}
+    className="absolute -left-6 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-gradient-to-r from-gray-900/90 to-gray-800/90 backdrop-blur-sm border border-gray-700/50 hover:border-designColor/50 rounded-2xl flex items-center justify-center text-white transition-all duration-300 shadow-xl group"
+  >
+    <motion.div whileHover={{ x: -2 }} transition={{ duration: 0.2 }}>
+      <FaChevronLeft className="text-lg group-hover:text-designColor transition-colors duration-300" />
     </motion.div>
-  );
-}
+    <motion.div
+      className="absolute inset-0 rounded-2xl bg-gradient-to-r from-designColor/20 to-teal-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"
+      initial={{ scale: 0.8 }}
+      whileHover={{ scale: 1.1 }}
+    />
+  </motion.button>
+);
 
-function SamplePrevArrow(props) {
-  const { onClick } = props;
-  return (
-    <motion.div
-      whileHover={{ scale: 1.1, backgroundColor: "#028b7d" }}
-      whileTap={{ scale: 0.9 }}
-      className="w-12 h-12 bg-gradient-to-r from-gray-800 to-gray-700 hover:from-designColor hover:to-teal-600 duration-300 rounded-full text-xl text-gray-300 hover:text-white flex justify-center items-center absolute top-0 right-16 shadow-lg cursor-pointer z-10 border border-gray-600 hover:border-designColor"
-      onClick={onClick}
-    >
-      <HiArrowLeft />
+const CustomNextArrow = ({ onClick }) => (
+  <motion.button
+    whileHover={{
+      scale: 1.05,
+      backgroundColor: "rgba(2, 139, 125, 0.9)",
+      boxShadow: "0 10px 25px rgba(2, 139, 125, 0.3)",
+    }}
+    whileTap={{ scale: 0.95 }}
+    onClick={onClick}
+    className="absolute -right-6 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-gradient-to-r from-gray-900/90 to-gray-800/90 backdrop-blur-sm border border-gray-700/50 hover:border-designColor/50 rounded-2xl flex items-center justify-center text-white transition-all duration-300 shadow-xl group"
+  >
+    <motion.div whileHover={{ x: 2 }} transition={{ duration: 0.2 }}>
+      <FaChevronRight className="text-lg group-hover:text-designColor transition-colors duration-300" />
     </motion.div>
-  );
-}
+    <motion.div
+      className="absolute inset-0 rounded-2xl bg-gradient-to-r from-designColor/20 to-teal-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"
+      initial={{ scale: 0.8 }}
+      whileHover={{ scale: 1.1 }}
+    />
+  </motion.button>
+);
 
 const Testimonial = () => {
   const [dotActive, setDocActive] = useState(0);
   
-  // Slider settings
-  const settings = {
+  const sliderSettings = {
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    pauseOnHover: true,
+    prevArrow: <CustomPrevArrow />,
+    nextArrow: <CustomNextArrow />,
     beforeChange: (prev, next) => {
       setDocActive(next);
     },
-    appendDots: (dots) => (
-      <div
-        style={{
-          borderRadius: "10px",
-          padding: "10px",
-        }}
-      >
-        <ul
-          style={{
-            display: "flex",
-            gap: "15px",
-            justifyContent: "center",
-            marginTop: "20px",
-          }}
-        >
-          {dots}
-        </ul>
-      </div>
-    ),
-    customPaging: (i) => (
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          arrows: false,
+        },
+      },
+    ],
+    customPaging: () => (
       <motion.div
-        whileHover={{ scale: 1.2 }}
+        whileHover={{ scale: 1.3 }}
         whileTap={{ scale: 0.9 }}
-        className={`w-3 h-3 rounded-full cursor-pointer transition-all duration-300 ${
-          i === dotActive 
-            ? "bg-designColor shadow-lg shadow-designColor/50" 
-            : "bg-gray-500 hover:bg-gray-400"
-        }`}
+        className="w-3 h-3 rounded-full bg-gradient-to-r from-gray-600 to-gray-500 hover:from-designColor hover:to-teal-400 transition-all duration-300 mt-8 cursor-pointer shadow-lg"
       />
     ),
+    dotsClass: "slick-dots modern-dots flex justify-center gap-3",
   };
 
   return (
-    <section
-      id="testimonial"
-      className="w-full py-20 border-b-[1px] border-b-black"
+    <section 
+      id="testimonial" 
+      className="w-full py-20 border-b-[1px] border-b-black relative overflow-hidden"
     >
-      <div className="flex justify-center items-center text-center">
+      <motion.div
+        className="absolute top-20 -left-10 w-72 h-72 rounded-full bg-designColor/5 blur-3xl"
+        animate={{
+          x: [0, 30, 0],
+          y: [0, 50, 0],
+        }}
+        transition={{
+          duration: 18,
+          repeat: Infinity,
+          repeatType: "reverse",
+        }}
+      />
+      <motion.div
+        className="absolute bottom-20 -right-10 w-72 h-72 rounded-full bg-purple-500/5 blur-3xl"
+        animate={{
+          x: [0, -40, 0],
+          y: [0, -30, 0],
+        }}
+        transition={{
+          duration: 22,
+          repeat: Infinity,
+          repeatType: "reverse",
+        }}
+      />
+
+      <motion.div
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        className="flex justify-center items-center text-center mb-10"
+      >
         <Title title="WHAT PEOPLE SAY" des="Testimonials" />
-      </div>
-      <div className="max-w-6xl mx-auto px-4">
-        <Slider {...settings}>
-          {testimonialData.map((testimonial) => (
+      </motion.div>
+
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.1 }}
+        transition={{ duration: 0.8 }}
+        className="max-w-6xl mx-auto px-4 md:px-10 lg:px-16 relative"
+      >
+        <Slider {...sliderSettings}>
+          {testimonialData.map((testimonial, index) => (
             <div key={testimonial.id} className="w-full px-4 py-8">
-              <div className="w-full h-auto flex flex-col lgl:flex-row justify-between gap-8">
-                {/* Avatar and Person Info */}
+              <motion.div 
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="w-full h-auto flex flex-col lgl:flex-row justify-between gap-8"
+              >
                 <motion.div
                   initial={{ opacity: 0, x: -50 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -105,7 +148,6 @@ const Testimonial = () => {
                   className="w-full lgl:w-[35%] h-full bg-gradient-to-br from-[#1e2024] via-[#1a1d21] to-[#23272b] p-8 rounded-xl shadow-shadowOne flex flex-col gap-6 justify-center items-center border border-gray-800/50 hover:border-designColor/30 transition-all duration-300"
                 >
                   <div className="w-full flex flex-col items-center">
-                    {/* Modern circular avatar with glow effect */}
                     <motion.div 
                       whileHover={{ scale: 1.05 }}
                       className="w-28 h-28 mx-auto mb-4 relative group"
@@ -117,7 +159,6 @@ const Testimonial = () => {
                           alt={testimonial.name}
                         />
                       </div>
-                      {/* Glow effect */}
                       <div className="absolute inset-0 rounded-full bg-designColor/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-md -z-10"></div>
                     </motion.div>
                     
@@ -129,7 +170,6 @@ const Testimonial = () => {
                     </motion.h3>
                     <p className="text-sm text-gray-400 mt-1 text-center">{testimonial.role}</p>
                     
-                    {/* Rating Stars with animation */}
                     <div className="flex gap-1 mt-4">
                       {[...Array(testimonial.rating)].map((_, i) => (
                         <motion.div
@@ -146,14 +186,12 @@ const Testimonial = () => {
                   </div>
                 </motion.div>
                 
-                {/* Testimonial Content */}
                 <motion.div
                   initial={{ opacity: 0, x: 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
                   className="w-full lgl:w-[65%] h-full flex flex-col justify-between relative"
                 >
-                  {/* Quote icon with animation */}
                   <motion.div
                     initial={{ opacity: 0, scale: 0 }}
                     animate={{ opacity: 1, scale: 1 }}
@@ -164,7 +202,6 @@ const Testimonial = () => {
                   </motion.div>
                   
                   <div className="w-full h-full py-8 bg-gradient-to-br from-[#1e2024] via-[#1a1d21] to-[#23272b] rounded-xl shadow-shadowOne p-6 lgl:p-8 flex flex-col justify-center gap-6 border border-gray-800/50 hover:border-designColor/30 transition-all duration-300">
-                    {/* Project info header */}
                     <div className="flex flex-col gap-3 pb-6 border-b border-gray-700/50">
                       <motion.h3 
                         whileHover={{ color: "#028b7d" }}
@@ -181,7 +218,6 @@ const Testimonial = () => {
                       </div>
                     </div>
                     
-                    {/* Testimonial text */}
                     <motion.p 
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
@@ -192,11 +228,11 @@ const Testimonial = () => {
                     </motion.p>
                   </div>
                 </motion.div>
-              </div>
+              </motion.div>
             </div>
           ))}
         </Slider>
-      </div>
+      </motion.div>
     </section>
   );
 };

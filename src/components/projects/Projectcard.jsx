@@ -11,9 +11,9 @@ const Projectcard = ({ title, des, src, technologies, category, githubLink, live
   // Get category icon
   const getCategoryIcon = (category) => {
     switch(category) {
-      case 'AI/ML': return <FaRobot className="text-purple-400" />;
-      case 'Mobile App': return <FaMobile className="text-blue-400" />;
-      case 'Web App': return <FaCode className="text-green-400" />;
+      case 'AI/ML': return <FaRobot className="text-purple-600 dark:text-purple-400" />;
+      case 'Mobile App': return <FaMobile className="text-blue-600 dark:text-blue-400" />;
+      case 'Web App': return <FaCode className="text-green-600 dark:text-green-400" />;
       default: return <FaCode className="text-designColor" />;
     }
   };
@@ -58,10 +58,12 @@ const Projectcard = ({ title, des, src, technologies, category, githubLink, live
       <motion.div 
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="absolute top-4 right-4 z-20 flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 backdrop-blur-sm"
+        className="absolute top-4 right-4 z-20 flex items-center gap-2 px-3 py-1.5 rounded-full bg-white dark:bg-gray-900 backdrop-blur-sm border-2 border-gray-200 dark:border-gray-700 shadow-xl project-category-badge"
       >
-        {getCategoryIcon(category)}
-        <span className="text-xs text-white font-medium">{category}</span>
+        <span className="category-icon">
+          {getCategoryIcon(category)}
+        </span>
+        <span className="text-xs font-bold tracking-wide category-text high-contrast-text">{category}</span>
       </motion.div>
       
       {/* Image container */}

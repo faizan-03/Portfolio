@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import Slider from "react-slick";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
-// Modern Custom Arrow Components
 const CustomPrevArrow = ({ onClick }) => (
   <motion.button
     whileHover={{
@@ -21,8 +20,6 @@ const CustomPrevArrow = ({ onClick }) => (
     <motion.div whileHover={{ x: -2 }} transition={{ duration: 0.2 }}>
       <FaChevronLeft className="text-lg group-hover:text-designColor transition-colors duration-300" />
     </motion.div>
-
-    {/* Glow effect */}
     <motion.div
       className="absolute inset-0 rounded-2xl bg-gradient-to-r from-designColor/20 to-teal-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"
       initial={{ scale: 0.8 }}
@@ -45,8 +42,6 @@ const CustomNextArrow = ({ onClick }) => (
     <motion.div whileHover={{ x: 2 }} transition={{ duration: 0.2 }}>
       <FaChevronRight className="text-lg group-hover:text-designColor transition-colors duration-300" />
     </motion.div>
-
-    {/* Glow effect */}
     <motion.div
       className="absolute inset-0 rounded-2xl bg-gradient-to-r from-designColor/20 to-teal-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-sm"
       initial={{ scale: 0.8 }}
@@ -84,7 +79,7 @@ const Projects = () => {
         },
       },
     ],
-    customPaging: (i) => (
+    customPaging: () => (
       <motion.div
         whileHover={{ scale: 1.3 }}
         whileTap={{ scale: 0.9 }}
@@ -97,9 +92,8 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="w-full py-20 border-b-[1px] border-b-black relative overflow-hidden"
+      className="w-full py-20 border-b-[1px] border-b-gray-200/30 dark:border-b-gray-800/50 relative overflow-hidden"
     >
-      {/* Background decoration */}
       <motion.div
         className="absolute top-40 -left-10 w-72 h-72 rounded-full bg-designColor/5 blur-3xl"
         animate={{
@@ -112,7 +106,6 @@ const Projects = () => {
           repeatType: "reverse",
         }}
       />
-
       <motion.div
         className="absolute bottom-40 -right-10 w-72 h-72 rounded-full bg-blue-500/5 blur-3xl"
         animate={{

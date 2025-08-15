@@ -1,30 +1,9 @@
-// Import the quote icon
-import { quote } from "../assets";
-
-// Get avatar base URL - use a safe approach to access environment variables
-const getEnvVariable = (key, fallback) => {
-  // Check if process.env is available (for development)
-  if (typeof process !== 'undefined' && process.env && process.env[key]) {
-    return process.env[key];
-  }
-  // Check if window._env_ is available (for production)
-  else if (typeof window !== 'undefined' && window._env_ && window._env_[key]) {
-    return window._env_[key];
-  }
-  // Return fallback value
-  return fallback;
-};
-
-// Get avatar API URL with fallback
-const AVATAR_API_URL = getEnvVariable('REACT_APP_AVATAR_API_URL', 'https://randomuser.me/api/portraits');
-
-// Testimonial Data - Updated to reflect actual experience and skills
 export const testimonialData = [
   {
     id: 1,
     name: "Ahmad Hassan",
     role: "Senior Developer at Cinnova",
-    avatar: `${AVATAR_API_URL}/men/32.jpg`,
+    avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face&auto=format",
     project: "JavaScript Development Mentorship",
     platform: "Cinnova Lahore",
     date: "2024 - Present",
@@ -35,7 +14,7 @@ export const testimonialData = [
     id: 2,
     name: "Dr. Ayesha Khan",
     role: "Computer Science Faculty",
-    avatar: `${AVATAR_API_URL}/women/45.jpg`,
+    avatar: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face&auto=format",
     project: "Student Management System",
     platform: "University of Gujrat",
     date: "December 2024",
@@ -46,7 +25,7 @@ export const testimonialData = [
     id: 3,
     name: "Usman Ali",
     role: "HCS President",
-    avatar: `${AVATAR_API_URL}/men/63.jpg`,
+    avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face&auto=format",
     project: "Technical Workshop Organization",
     platform: "Hayatian Computing Society",
     date: "2024 - Present",
@@ -57,7 +36,7 @@ export const testimonialData = [
     id: 4,
     name: "Maria Rodriguez",
     role: "Workshop Participant",
-    avatar: `${AVATAR_API_URL}/women/22.jpg`,
+    avatar: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face&auto=format",
     project: "Web Development Workshop",
     platform: "Code Camp Pakistan",
     date: "June 2025",

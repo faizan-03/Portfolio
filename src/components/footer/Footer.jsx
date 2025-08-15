@@ -21,7 +21,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   // Get environment variables
-  const githubUsername = getEnvVariable('REACT_APP_GITHUB_USERNAME', 'faizan-ali786');
+  const githubUsername = getEnvVariable('REACT_APP_GITHUB_USERNAME', 'faizan-03');
   const linkedinId = getEnvVariable('REACT_APP_LINKEDIN_ID', 'rana-faizan-7b4b02252');
   const instagramUsername = getEnvVariable('REACT_APP_INSTAGRAM_USERNAME', 'ranafaizan__03');
   const name = getEnvVariable('REACT_APP_NAME', 'Faizan Ali');
@@ -31,27 +31,13 @@ const Footer = () => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="w-full py-8 bg-bodycolor relative overflow-hidden"
+      className="w-full py-6 bg-gray-50 dark:bg-bodycolor border-t border-gray-200 dark:border-gray-800 relative overflow-hidden"
     >
-      {/* Animated background elements */}
-      <motion.div 
-        className="absolute top-0 left-10 w-20 h-20 rounded-full bg-designColor/10 blur-xl"
-        animate={{ 
-          x: [0, 50, 0],
-          scale: [1, 1.2, 1]
-        }}
-        transition={{ 
-          duration: 10, 
-          repeat: Infinity,
-          repeatType: "reverse" 
-        }}
-      />
-      
-      <div className="w-full max-w-[100vw] mx-auto">
-        <div className="w-full flex flex-col md:flex-row justify-between items-center gap-4 px-4 md:px-16 lg:px-24">
+      <div className="max-w-6xl mx-auto px-4 md:px-8">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
           {/* Social Icons */}
           <motion.div 
-            className="flex gap-4"
+            className="flex gap-3"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
@@ -60,8 +46,8 @@ const Footer = () => {
               href={`https://github.com/${githubUsername}`}
               target="_blank" 
               rel="noopener noreferrer"
-              className="w-10 h-10 bg-[#191B1E] text-gray-400 rounded-full flex items-center justify-center hover:text-designColor hover:bg-[#131517] transition-all duration-300"
-              whileHover={{ y: -5, scale: 1.1 }}
+              className="w-9 h-9 bg-white dark:bg-[#191B1E] text-gray-600 dark:text-gray-400 rounded-lg flex items-center justify-center hover:text-designColor hover:bg-gray-100 dark:hover:bg-[#131517] transition-all duration-300 shadow-sm"
+              whileHover={{ y: -2, scale: 1.05 }}
             >
               <FaGithub />
             </motion.a>
@@ -69,8 +55,8 @@ const Footer = () => {
               href={`https://www.linkedin.com/in/${linkedinId}/`}
               target="_blank" 
               rel="noopener noreferrer"
-              className="w-10 h-10 bg-[#191B1E] text-gray-400 rounded-full flex items-center justify-center hover:text-designColor hover:bg-[#131517] transition-all duration-300"
-              whileHover={{ y: -5, scale: 1.1 }}
+              className="w-9 h-9 bg-white dark:bg-[#191B1E] text-gray-600 dark:text-gray-400 rounded-lg flex items-center justify-center hover:text-blue-600 hover:bg-gray-100 dark:hover:bg-[#131517] transition-all duration-300 shadow-sm"
+              whileHover={{ y: -2, scale: 1.05 }}
             >
               <FaLinkedinIn />
             </motion.a>
@@ -78,8 +64,8 @@ const Footer = () => {
               href={`https://www.instagram.com/${instagramUsername}/`}
               target="_blank" 
               rel="noopener noreferrer"
-              className="w-10 h-10 bg-[#191B1E] text-gray-400 rounded-full flex items-center justify-center hover:text-designColor hover:bg-[#131517] transition-all duration-300"
-              whileHover={{ y: -5, scale: 1.1 }}
+              className="w-9 h-9 bg-white dark:bg-[#191B1E] text-gray-600 dark:text-gray-400 rounded-lg flex items-center justify-center hover:text-pink-500 hover:bg-gray-100 dark:hover:bg-[#131517] transition-all duration-300 shadow-sm"
+              whileHover={{ y: -2, scale: 1.05 }}
             >
               <FaInstagram />
             </motion.a>
@@ -110,7 +96,7 @@ const Footer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <p className="text-gray-400 text-sm flex items-center gap-1 justify-center">
+            <p className="text-gray-600 dark:text-gray-400 text-sm flex items-center gap-1 justify-center">
               © {currentYear} Made with <FaHeart className="text-designColor animate-pulse" /> by {name}
             </p>
           </motion.div>

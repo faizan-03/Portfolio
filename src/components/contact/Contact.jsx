@@ -194,7 +194,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="w-full py-20 border-b-[1px] border-b-black relative overflow-hidden">
+    <section id="contact" className="w-full py-20 border-b-[1px] border-b-gray-200/30 dark:border-b-gray-800/50 relative overflow-hidden">
       {/* Background decoration */}
       <motion.div 
         className="absolute top-40 -left-10 w-72 h-72 rounded-full bg-designColor/5 blur-3xl"
@@ -258,7 +258,7 @@ const Contact = () => {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="w-full max-w-5xl mx-auto bg-[#1E2024] p-6 md:p-8 rounded-lg shadow-shadowOne relative overflow-hidden"
+          className="w-full max-w-5xl mx-auto bg-white/95 dark:bg-[#1E2024] p-6 md:p-8 rounded-xl shadow-shadowOne relative overflow-hidden border border-gray-200/50 dark:border-gray-700/50 backdrop-blur-sm"
         >
           {/* Animated background */}
           <motion.div 
@@ -277,7 +277,7 @@ const Contact = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
             {/* Name Field */}
             <motion.div variants={itemVariants} className="flex flex-col gap-2">
-              <label htmlFor="name" className="text-sm text-gray-400">Your Name <span className="text-designColor">*</span></label>
+              <label htmlFor="name" className="text-sm text-gray-700 dark:text-gray-400">Your Name <span className="text-designColor">*</span></label>
               <motion.input
                 type="text"
                 id="name"
@@ -287,7 +287,7 @@ const Contact = () => {
                 whileFocus="focus"
                 whileTap="tap"
                 variants={inputVariants}
-                className={`w-full bg-[#191B1E] rounded-lg border-2 ${errors.name ? 'border-red-500' : 'border-transparent'} p-4 text-white outline-none focus:border-designColor duration-300`}
+                className={`w-full bg-gray-50 dark:bg-[#191B1E] rounded-lg border-2 ${errors.name ? 'border-red-500' : 'border-gray-200 dark:border-transparent'} p-4 text-gray-900 dark:text-white outline-none focus:border-designColor duration-300`}
                 placeholder="Enter your name"
               />
               {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
@@ -295,7 +295,7 @@ const Contact = () => {
             
             {/* Email Field */}
             <motion.div variants={itemVariants} className="flex flex-col gap-2">
-              <label htmlFor="email" className="text-sm text-gray-400">Email <span className="text-designColor">*</span></label>
+              <label htmlFor="email" className="text-sm text-gray-700 dark:text-gray-400">Email <span className="text-designColor">*</span></label>
               <motion.input
                 type="email"
                 id="email"
@@ -305,7 +305,7 @@ const Contact = () => {
                 whileFocus="focus"
                 whileTap="tap"
                 variants={inputVariants}
-                className={`w-full bg-[#191B1E] rounded-lg border-2 ${errors.email ? 'border-red-500' : 'border-transparent'} p-4 text-white outline-none focus:border-designColor duration-300`}
+                className={`w-full bg-gray-50 dark:bg-[#191B1E] rounded-lg border-2 ${errors.email ? 'border-red-500' : 'border-gray-200 dark:border-transparent'} p-4 text-gray-900 dark:text-white outline-none focus:border-designColor duration-300`}
                 placeholder="Enter your email"
               />
               {errors.email && <p className="text-red-500 text-xs mt-1">{errors.email}</p>}
@@ -313,7 +313,7 @@ const Contact = () => {
             
             {/* Phone Field */}
             <motion.div variants={itemVariants} className="flex flex-col gap-2">
-              <label htmlFor="phone" className="text-sm text-gray-400">Phone Number</label>
+              <label htmlFor="phone" className="text-sm text-gray-700 dark:text-gray-400">Phone Number</label>
               <motion.input
                 type="tel"
                 id="phone"
@@ -323,7 +323,7 @@ const Contact = () => {
                 whileFocus="focus"
                 whileTap="tap"
                 variants={inputVariants}
-                className={`w-full bg-[#191B1E] rounded-lg border-2 ${errors.phone ? 'border-red-500' : 'border-transparent'} p-4 text-white outline-none focus:border-designColor duration-300`}
+                className={`w-full bg-gray-50 dark:bg-[#191B1E] rounded-lg border-2 ${errors.phone ? 'border-red-500' : 'border-gray-200 dark:border-transparent'} p-4 text-gray-900 dark:text-white outline-none focus:border-designColor duration-300`}
                 placeholder="Enter your phone number"
               />
               {errors.phone && <p className="text-red-500 text-xs mt-1">{errors.phone}</p>}
@@ -331,7 +331,7 @@ const Contact = () => {
             
             {/* Budget Range Dropdown */}
             <motion.div variants={itemVariants} className="flex flex-col gap-2">
-              <label htmlFor="budget" className="text-sm text-gray-400">Budget Range <span className="text-designColor">*</span></label>
+              <label htmlFor="budget" className="text-sm text-gray-700 dark:text-gray-400">Budget Range <span className="text-designColor">*</span></label>
               <motion.select
                 id="budget"
                 name="budget"
@@ -340,10 +340,10 @@ const Contact = () => {
                 whileFocus="focus"
                 whileTap="tap"
                 variants={inputVariants}
-                className={`w-full bg-[#191B1E] rounded-lg border-2 ${errors.budget ? 'border-red-500' : 'border-transparent'} p-4 text-white outline-none focus:border-designColor duration-300 appearance-none`}
+                className={`w-full bg-gray-50 dark:bg-[#191B1E] rounded-lg border-2 ${errors.budget ? 'border-red-500' : 'border-gray-200 dark:border-transparent'} p-4 text-gray-900 dark:text-white outline-none focus:border-designColor duration-300 appearance-none`}
               >
                 {budgetOptions.map((option, index) => (
-                  <option key={index} value={option} className="bg-[#191B1E]">
+                  <option key={index} value={option} className="bg-gray-50 dark:bg-[#191B1E] text-gray-900 dark:text-white">
                     {option}
                   </option>
                 ))}
@@ -353,7 +353,7 @@ const Contact = () => {
             
             {/* Interest Dropdown */}
             <motion.div variants={itemVariants} className="flex flex-col gap-2">
-              <label htmlFor="interest" className="text-sm text-gray-400">I'm Interested In <span className="text-designColor">*</span></label>
+              <label htmlFor="interest" className="text-sm text-gray-700 dark:text-gray-400">I'm Interested In <span className="text-designColor">*</span></label>
               <motion.select
                 id="interest"
                 name="interest"
@@ -362,10 +362,10 @@ const Contact = () => {
                 whileFocus="focus"
                 whileTap="tap"
                 variants={inputVariants}
-                className={`w-full bg-[#191B1E] rounded-lg border-2 ${errors.interest ? 'border-red-500' : 'border-transparent'} p-4 text-white outline-none focus:border-designColor duration-300 appearance-none`}
+                className={`w-full bg-gray-50 dark:bg-[#191B1E] rounded-lg border-2 ${errors.interest ? 'border-red-500' : 'border-gray-200 dark:border-transparent'} p-4 text-gray-900 dark:text-white outline-none focus:border-designColor duration-300 appearance-none`}
               >
                 {interestOptions.map((option, index) => (
-                  <option key={index} value={option} className="bg-[#191B1E]">
+                  <option key={index} value={option} className="bg-gray-50 dark:bg-[#191B1E] text-gray-900 dark:text-white">
                     {option}
                   </option>
                 ))}
@@ -375,7 +375,7 @@ const Contact = () => {
             
             {/* Country Dropdown */}
             <motion.div variants={itemVariants} className="flex flex-col gap-2">
-              <label htmlFor="country" className="text-sm text-gray-400">Country <span className="text-designColor">*</span></label>
+              <label htmlFor="country" className="text-sm text-gray-700 dark:text-gray-400">Country <span className="text-designColor">*</span></label>
               <motion.select
                 id="country"
                 name="country"
@@ -384,10 +384,10 @@ const Contact = () => {
                 whileFocus="focus"
                 whileTap="tap"
                 variants={inputVariants}
-                className={`w-full bg-[#191B1E] rounded-lg border-2 ${errors.country ? 'border-red-500' : 'border-transparent'} p-4 text-white outline-none focus:border-designColor duration-300 appearance-none`}
+                className={`w-full bg-gray-50 dark:bg-[#191B1E] rounded-lg border-2 ${errors.country ? 'border-red-500' : 'border-gray-200 dark:border-transparent'} p-4 text-gray-900 dark:text-white outline-none focus:border-designColor duration-300 appearance-none`}
               >
                 {countryOptions.map((option, index) => (
-                  <option key={index} value={option} className="bg-[#191B1E]">
+                  <option key={index} value={option} className="bg-gray-50 dark:bg-[#191B1E] text-gray-900 dark:text-white">
                     {option}
                   </option>
                 ))}
@@ -397,7 +397,7 @@ const Contact = () => {
             
             {/* Message Field - Full Width */}
             <motion.div variants={itemVariants} className="flex flex-col gap-2 md:col-span-2">
-              <label htmlFor="message" className="text-sm text-gray-400">Your Message <span className="text-designColor">*</span></label>
+              <label htmlFor="message" className="text-sm text-gray-700 dark:text-gray-400">Your Message <span className="text-designColor">*</span></label>
               <motion.textarea
                 id="message"
                 name="message"
@@ -406,7 +406,7 @@ const Contact = () => {
                 whileFocus="focus"
                 whileTap="tap"
                 variants={inputVariants}
-                className={`w-full bg-[#191B1E] rounded-lg border-2 ${errors.message ? 'border-red-500' : 'border-transparent'} p-4 text-white outline-none focus:border-designColor duration-300 min-h-[150px] resize-none`}
+                className={`w-full bg-gray-50 dark:bg-[#191B1E] rounded-lg border-2 ${errors.message ? 'border-red-500' : 'border-gray-200 dark:border-transparent'} p-4 text-gray-900 dark:text-white outline-none focus:border-designColor duration-300 min-h-[150px] resize-none`}
                 placeholder="Write your message here..."
               />
               {errors.message && <p className="text-red-500 text-xs mt-1">{errors.message}</p>}
@@ -417,32 +417,36 @@ const Contact = () => {
               <motion.button
                 type="submit"
                 disabled={isSubmitting}
-                whileHover={{ scale: 1.03, boxShadow: "0 10px 25px rgba(0, 0, 0, 0.3)" }}
-                whileTap={{ scale: 0.97 }}
-                className="w-full bg-gradient-to-r from-designColor to-teal-700 text-white py-4 px-6 rounded-lg font-semibold flex items-center justify-center gap-2 hover:from-teal-700 hover:to-designColor transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed relative overflow-hidden group"
+                whileHover={{ 
+                  scale: 1.02, 
+                  boxShadow: "0 8px 25px rgba(2, 139, 125, 0.3)",
+                  y: -1
+                }}
+                whileTap={{ scale: 0.98 }}
+                className="w-full bg-gradient-to-r from-designColor to-teal-600 hover:from-teal-600 hover:to-designColor text-white py-4 px-6 rounded-lg font-semibold flex items-center justify-center gap-3 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed relative overflow-hidden group shadow-lg hover:shadow-xl"
               >
-                {/* Button background animation */}
-                <motion.span 
-                  className="absolute inset-0 w-full h-full bg-gradient-to-r from-designColor to-teal-700"
-                  animate={{ 
-                    x: ['-100%', '100%'],
-                    opacity: [0, 0.3, 0]
-                  }}
-                  transition={{ 
-                    duration: 3, 
-                    repeat: Infinity,
-                    repeatType: "loop" 
-                  }}
-                />
-                
                 {isSubmitting ? (
                   <>
-                    <span className="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full"></span>
+                    <motion.span 
+                      className="animate-spin h-5 w-5 border-2 border-white border-t-transparent rounded-full"
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                    />
                     <span className="relative z-10">Sending...</span>
                   </>
                 ) : (
                   <>
-                    <FaPaperPlane className="text-lg relative z-10" />
+                    <motion.div
+                      whileHover={{ 
+                        x: 2,
+                        rotate: 15,
+                        scale: 1.1
+                      }}
+                      transition={{ duration: 0.2 }}
+                      className="relative z-10"
+                    >
+                      <FaPaperPlane className="text-lg" />
+                    </motion.div>
                     <span className="relative z-10">Send Message</span>
                   </>
                 )}
