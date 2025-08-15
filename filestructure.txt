@@ -1,0 +1,87 @@
+|-- .env
+|-- .gitignore
+|-- ANALYTICS_SETUP.md
+|-- eslint.config.js
+|-- index.html
+|-- package-lock.json
+|-- package.json
+|-- postcss.config.js
+|-- public
+    |-- CV
+        |-- MyResume.pdf
+    |-- env-config.js
+|-- README.md
+|-- scripts
+    |-- convertPdfs.js
+|-- src
+    |-- api
+        |-- analytics.js
+    |-- App.css
+    |-- App.jsx
+    |-- assets
+        |-- Certificates
+            |-- hcs.png
+            |-- ICS.png
+        |-- Images
+            |-- bannerImg.png
+            |-- contact
+                |-- contactImg.png
+            |-- faizan.png
+            |-- logo.png
+            |-- testmonial
+                |-- quote.png
+                |-- testimonialOne.png
+                |-- testimonialTwo.png
+        |-- index.js
+    |-- components
+        |-- banner
+            |-- Banner.jsx
+            |-- Leftbanner.jsx
+            |-- Rightbanner.jsx
+        |-- contact
+            |-- Contact.jsx
+            |-- emailjs-setup.js
+        |-- features
+            |-- Card.jsx
+            |-- Features.jsx
+        |-- footer
+            |-- Footer.jsx
+        |-- layouts
+            |-- Title.jsx
+        |-- navbar
+            |-- Navbar.jsx
+        |-- projects
+            |-- Projectcard.jsx
+            |-- Projects.jsx
+        |-- resume
+            |-- Achievement.jsx
+            |-- Education.jsx
+            |-- Experience.jsx
+            |-- Resume.jsx
+            |-- ResumeCard.jsx
+            |-- Skills.jsx
+        |-- testimonial
+            |-- Testimonial.jsx
+        |-- ui
+            |-- CustomTypewriter.jsx
+            |-- LoadingSkeleton.jsx
+            |-- ProgressIndicator.jsx
+            |-- ThemeToggle.jsx
+            |-- Timeline.jsx
+            |-- VisitorCounter.jsx
+    |-- constants
+        |-- index.js
+    |-- contexts
+        |-- ThemeContext.jsx
+        |-- ThemeContextInstance.js
+    |-- Data
+        |-- data.js
+        |-- testimonialData.js
+    |-- hooks
+        |-- useTheme.js
+    |-- index.css
+    |-- main.jsx
+    |-- utils
+        |-- analytics.js
+|-- tailwind.config.js
+|-- vite.config.js

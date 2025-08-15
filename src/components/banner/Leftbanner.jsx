@@ -7,13 +7,13 @@ import CustomTypewriter from "../ui/CustomTypewriter";
 
 // Helper function to safely get environment variables
 const getEnvVariable = (key, fallback) => {
-  // Check if process.env is available (for development)
-  if (typeof process !== 'undefined' && process.env && process.env[key]) {
-    return process.env[key];
-  }
   // Check if window._env_ is available (for production)
-  else if (typeof window !== 'undefined' && window._env_ && window._env_[key]) {
+  if (typeof window !== 'undefined' && window._env_ && window._env_[key]) {
     return window._env_[key];
+  }
+  // Try to access import.meta.env (for Vite)
+  else if (import.meta.env && import.meta.env[key]) {
+    return import.meta.env[key];
   }
   // Return fallback value
   return fallback;
@@ -37,10 +37,10 @@ const Leftbanner = () => {
   const description = getEnvVariable('REACT_APP_DESCRIPTION', 'A passionate developer specializing in MERN Stack, .NET Blazor, and exploring the realms of AI & Machine Learning. Currently pursuing BS Computer Science at the University of Gujrat.');
 
   return (
-    <div className="w-full flex flex-col gap-8 md:pr-6 relative">
+    <div className="w-full flex flex-col gap-6 sm:gap-8 md:pr-6 relative">
       {/* Background decoration */}
       <motion.div
-        className="absolute -top-20 -left-20 w-40 h-40 rounded-full bg-designColor/10 blur-3xl"
+        className="absolute -top-20 -left-20 w-32 sm:w-40 h-32 sm:h-40 rounded-full bg-designColor/10 blur-2xl sm:blur-3xl"
         animate={{
           scale: [1, 1.2, 1],
           opacity: [0.3, 0.6, 0.3],
@@ -71,13 +71,13 @@ const Leftbanner = () => {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white leading-tight"
+          className="text-4xl md:text-6xl font-bold warm-text-primary text-gray-900 dark:text-white leading-tight theme-transition"
         >
           <motion.span
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="block mb-2 text-lg md:text-xl font-medium text-gray-600 dark:text-gray-400"
+            className="block mb-2 text-lg md:text-xl font-medium warm-text-secondary text-gray-600 dark:text-gray-400 theme-transition"
           >
             Hello, I'm
           </motion.span>
@@ -104,13 +104,13 @@ const Leftbanner = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="text-2xl md:text-4xl font-bold text-gray-900 dark:text-white flex flex-wrap items-center gap-2 mt-4"
+          className="text-2xl md:text-4xl font-bold warm-text-primary text-gray-900 dark:text-white flex flex-wrap items-center gap-2 mt-4 theme-transition"
         >
           <motion.span
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1 }}
-            className="text-gray-700 dark:text-gray-300"
+            className="warm-text-secondary text-gray-700 dark:text-gray-300 theme-transition"
           >
             I'm a
           </motion.span>
@@ -128,7 +128,7 @@ const Leftbanner = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.2 }}
-          className="text-base md:text-lg font-bodyFont leading-7 tracking-wide text-gray-600 dark:text-gray-300 max-w-2xl mt-6 font-medium"
+          className="text-base md:text-lg font-bodyFont leading-7 tracking-wide warm-text-secondary text-gray-600 dark:text-gray-300 max-w-2xl mt-6 font-medium theme-transition"
         >
           {description}
         </motion.p>
@@ -137,7 +137,7 @@ const Leftbanner = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.4 }}
-          className="flex flex-col gap-3 mt-8 w-full max-w-sm"
+          className="flex flex-col sm:flex-row gap-3 mt-6 sm:mt-8 w-full max-w-sm"
         >
           <motion.div
             whileHover={{
@@ -153,7 +153,7 @@ const Leftbanner = () => {
               smooth={true}
               offset={-70}
               duration={500}
-              className="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-designColor to-teal-600 hover:from-teal-600 hover:to-designColor text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group relative overflow-hidden"
+              className="w-full flex items-center justify-center gap-2 btn-warm-primary bg-gradient-to-r from-designColor to-teal-600 hover:from-teal-600 hover:to-designColor text-white px-4 sm:px-6 py-3 rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group relative overflow-hidden warm-hover theme-transition touch-manipulation"
             >
               <motion.div
                 whileHover={{ rotate: 10, scale: 1.1 }}
@@ -177,7 +177,7 @@ const Leftbanner = () => {
             <a
               href={cvPath}
               download
-              className="w-full flex items-center justify-center gap-2 border-2 border-designColor text-designColor hover:bg-designColor hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 group relative overflow-hidden backdrop-blur-sm"
+              className="w-full flex items-center justify-center gap-2 btn-warm-secondary border-2 border-designColor text-designColor hover:bg-designColor hover:text-white px-4 sm:px-6 py-3 rounded-lg font-semibold transition-all duration-300 group relative overflow-hidden backdrop-blur-sm warm-hover theme-transition touch-manipulation"
             >
               <motion.div
                 whileHover={{ y: -2, scale: 1.1 }}
@@ -221,26 +221,29 @@ const Leftbanner = () => {
               {
                 icon: FaGithub,
                 href: "https://github.com/faizan-03",
-                color: "hover:text-gray-900 dark:hover:text-white",
+                color: "social-icon-github hover:text-gray-900 dark:hover:text-white",
                 label: "GitHub",
                 bgColor: "hover:bg-gray-100 dark:hover:bg-gray-800",
-                hoverBorder: "hover:border-gray-400 dark:hover:border-gray-500"
+                hoverBorder: "hover:border-gray-400 dark:hover:border-gray-500",
+                warmClass: "social-icon-warm"
               },
               {
                 icon: FaInstagram,
                 href: `https://www.instagram.com/${instagramUsername}/`,
-                color: "hover:text-pink-600 dark:hover:text-pink-400",
+                color: "social-icon-instagram hover:text-pink-600 dark:hover:text-pink-400",
                 label: "Instagram",
                 bgColor: "hover:bg-pink-50 dark:hover:bg-pink-900/20",
-                hoverBorder: "hover:border-pink-300 dark:hover:border-pink-600"
+                hoverBorder: "hover:border-pink-300 dark:hover:border-pink-600",
+                warmClass: "social-icon-warm"
               },
               {
                 icon: FaLinkedinIn,
                 href: `https://www.linkedin.com/in/${linkedinId}/`,
-                color: "hover:text-blue-600 dark:hover:text-blue-400",
+                color: "social-icon-linkedin hover:text-blue-600 dark:hover:text-blue-400",
                 label: "LinkedIn",
                 bgColor: "hover:bg-blue-50 dark:hover:bg-blue-900/20",
-                hoverBorder: "hover:border-blue-300 dark:hover:border-blue-600"
+                hoverBorder: "hover:border-blue-300 dark:hover:border-blue-600",
+                warmClass: "social-icon-warm"
               }
             ].map((social, index) => (
               <motion.a
@@ -248,7 +251,7 @@ const Leftbanner = () => {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`w-12 h-12 rounded-xl border-2 border-gray-200 dark:border-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-400 ${social.color} ${social.bgColor} ${social.hoverBorder} transition-all duration-300 group relative shadow-sm hover:shadow-lg social-icon-enhanced`}
+                className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl border-2 border-gray-200 dark:border-gray-700 flex items-center justify-center text-gray-600 dark:text-gray-400 ${social.color} ${social.bgColor} ${social.hoverBorder} ${social.warmClass} transition-all duration-300 group relative shadow-sm hover:shadow-lg social-icon-enhanced warm-hover theme-transition touch-manipulation`}
                 whileHover={{
                   scale: 1.15,
                   y: -3,
@@ -260,6 +263,7 @@ const Leftbanner = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 1.5 + index * 0.1 }}
                 title={social.label}
+                aria-label={social.label}
               >
                 <motion.div
                   whileHover={{

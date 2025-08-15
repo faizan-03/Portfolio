@@ -30,20 +30,20 @@ const Skills = () => {
         >
           <motion.div
             className="overflow-x-hidden group"
-            whileHover={{ scale: 1.02 }}
+            whileHover={{ scale: 1.02, boxShadow: "0 8px 16px rgba(45, 40, 37, 0.08)" }}
             transition={{ duration: 0.2 }}
           >
-            <p className="text-sm uppercase font-medium group-hover:text-designColor transition-colors duration-300">React.js</p>
-            <span className="w-full h-2 bgOpacity rounded-md inline-flex mt-2">
+            <p className="text-sm uppercase font-medium text-[#2c2825] dark:text-white group-hover:text-designColor transition-colors duration-300">React.js</p>
+            <span className="w-full h-2 bg-[#f0ebe6]/80 dark:bgOpacity rounded-md inline-flex mt-2">
               <motion.span
                 initial={{ x: "-100%", opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.5 }}
-                className="w-[90%] h-full bg-gradient-to-r from-blue-600 via-designColor to-teal-700 rounded-md relative shadow-lg"
+                className="w-[90%] h-full bg-gradient-to-r from-[#028b7d] via-[#0d9488] to-teal-700 dark:from-blue-600 dark:via-designColor dark:to-teal-700 rounded-md relative shadow-lg backdrop-blur-md"
               >
-                <span className="absolute -top-7 right-0 text-xs font-semibold">90%</span>
+                <span className="absolute -top-7 right-0 text-xs font-semibold text-[#2c2825] dark:text-white">90%</span>
                 <motion.div
-                  className="absolute inset-0 bg-white/20 rounded-md opacity-0 group-hover:opacity-100"
+                  className="absolute inset-0 bg-white/20 dark:bg-white/20 rounded-md opacity-0 group-hover:opacity-100"
                   transition={{ duration: 0.3 }}
                 />
               </motion.span>
@@ -51,20 +51,20 @@ const Skills = () => {
           </motion.div>
           <motion.div
             className="overflow-x-hidden group"
-            whileHover={{ scale: 1.02 }}
+            whileHover={{ scale: 1.02, boxShadow: "0 8px 16px rgba(45, 40, 37, 0.08)" }}
             transition={{ duration: 0.2 }}
           >
-            <p className="text-sm uppercase font-medium group-hover:text-designColor transition-colors duration-300">Flutter</p>
-            <span className="w-full h-2 bgOpacity rounded-md inline-flex mt-2">
+            <p className="text-sm uppercase font-medium text-[#2c2825] dark:text-white group-hover:text-designColor transition-colors duration-300">Flutter</p>
+            <span className="w-full h-2 bg-[#f0ebe6]/80 dark:bgOpacity rounded-md inline-flex mt-2">
               <motion.span
                 initial={{ x: "-100%", opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.6 }}
-                className="w-[85%] h-full bg-gradient-to-r from-blue-600 via-designColor to-teal-700 rounded-md relative shadow-lg"
+                className="w-[85%] h-full bg-gradient-to-r from-[#028b7d] via-[#0d9488] to-teal-700 dark:from-blue-600 dark:via-designColor dark:to-teal-700 rounded-md relative shadow-lg backdrop-blur-md"
               >
-                <span className="absolute -top-7 right-0 text-xs font-semibold">85%</span>
+                <span className="absolute -top-7 right-0 text-xs font-semibold text-[#2c2825] dark:text-white">85%</span>
                 <motion.div
-                  className="absolute inset-0 bg-white/20 rounded-md opacity-0 group-hover:opacity-100"
+                  className="absolute inset-0 bg-white/20 dark:bg-white/20 rounded-md opacity-0 group-hover:opacity-100"
                   transition={{ duration: 0.3 }}
                 />
               </motion.span>
@@ -72,20 +72,20 @@ const Skills = () => {
           </motion.div>
           <motion.div
             className="overflow-x-hidden group"
-            whileHover={{ scale: 1.02 }}
+            whileHover={{ scale: 1.02, boxShadow: "0 8px 16px rgba(45, 40, 37, 0.08)" }}
             transition={{ duration: 0.2 }}
           >
-            <p className="text-sm uppercase font-medium group-hover:text-designColor transition-colors duration-300">JavaScript</p>
-            <span className="w-full h-2 bgOpacity rounded-md inline-flex mt-2">
+            <p className="text-sm uppercase font-medium text-[#2c2825] dark:text-white group-hover:text-designColor transition-colors duration-300">JavaScript</p>
+            <span className="w-full h-2 bg-[#f0ebe6]/80 dark:bgOpacity rounded-md inline-flex mt-2">
               <motion.span
                 initial={{ x: "-100%", opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.7 }}
-                className="w-[90%] h-full bg-gradient-to-r from-blue-600 via-designColor to-teal-700 rounded-md relative shadow-lg"
+                className="w-[90%] h-full bg-gradient-to-r from-[#028b7d] via-[#0d9488] to-teal-700 dark:from-blue-600 dark:via-designColor dark:to-teal-700 rounded-md relative shadow-lg backdrop-blur-md"
               >
-                <span className="absolute -top-7 right-0 text-xs font-semibold">90%</span>
+                <span className="absolute -top-7 right-0 text-xs font-semibold text-[#2c2825] dark:text-white">90%</span>
                 <motion.div
-                  className="absolute inset-0 bg-white/20 rounded-md opacity-0 group-hover:opacity-100"
+                  className="absolute inset-0 bg-white/20 dark:bg-white/20 rounded-md opacity-0 group-hover:opacity-100"
                   transition={{ duration: 0.3 }}
                 />
               </motion.span>

@@ -15,7 +15,7 @@ const CustomPrevArrow = ({ onClick }) => (
     }}
     whileTap={{ scale: 0.95 }}
     onClick={onClick}
-    className="absolute -left-6 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-gradient-to-r from-gray-900/90 to-gray-800/90 backdrop-blur-sm border border-gray-700/50 hover:border-designColor/50 rounded-2xl flex items-center justify-center text-white transition-all duration-300 shadow-xl group"
+    className="absolute -left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-[rgba(255,252,248,0.9)] dark:bg-gradient-to-r dark:from-gray-900/90 dark:to-gray-800/90 backdrop-blur-sm border border-gray-200/40 dark:border-gray-700/50 hover:border-designColor/50 rounded-xl sm:rounded-2xl flex items-center justify-center text-[#2c2825] dark:text-white transition-all duration-300 shadow-lg group touch-manipulation"
   >
     <motion.div whileHover={{ x: -2 }} transition={{ duration: 0.2 }}>
       <FaChevronLeft className="text-lg group-hover:text-designColor transition-colors duration-300" />
@@ -37,7 +37,7 @@ const CustomNextArrow = ({ onClick }) => (
     }}
     whileTap={{ scale: 0.95 }}
     onClick={onClick}
-    className="absolute -right-6 top-1/2 -translate-y-1/2 z-20 w-14 h-14 bg-gradient-to-r from-gray-900/90 to-gray-800/90 backdrop-blur-sm border border-gray-700/50 hover:border-designColor/50 rounded-2xl flex items-center justify-center text-white transition-all duration-300 shadow-xl group"
+    className="absolute -right-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-[rgba(255,252,248,0.9)] dark:bg-gradient-to-r dark:from-gray-900/90 dark:to-gray-800/90 backdrop-blur-sm border border-gray-200/40 dark:border-gray-700/50 hover:border-designColor/50 rounded-xl sm:rounded-2xl flex items-center justify-center text-[#2c2825] dark:text-white transition-all duration-300 shadow-lg group touch-manipulation"
   >
     <motion.div whileHover={{ x: 2 }} transition={{ duration: 0.2 }}>
       <FaChevronRight className="text-lg group-hover:text-designColor transition-colors duration-300" />
@@ -51,7 +51,7 @@ const CustomNextArrow = ({ onClick }) => (
 );
 
 const Testimonial = () => {
-  const [dotActive, setDocActive] = useState(0);
+  const [DocActive, setDocActive] = useState(0);
   
   const sliderSettings = {
     dots: true,
@@ -139,18 +139,18 @@ const Testimonial = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="w-full h-auto flex flex-col lgl:flex-row justify-between gap-8"
+                className="w-full h-auto flex flex-col lgl:flex-row justify-between gap-4 sm:gap-6 lgl:gap-8"
               >
                 <motion.div
                   initial={{ opacity: 0, x: -50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5 }}
-                  className="w-full lgl:w-[35%] h-full bg-gradient-to-br from-[#1e2024] via-[#1a1d21] to-[#23272b] p-8 rounded-xl shadow-shadowOne flex flex-col gap-6 justify-center items-center border border-gray-800/50 hover:border-designColor/30 transition-all duration-300"
+                  className="w-full lgl:w-[35%] h-full bg-[rgba(255,252,248,0.9)] dark:bg-gradient-to-br dark:from-[#1e2024] dark:via-[#1a1d21] dark:to-[#23272b] p-4 sm:p-6 lgl:p-8 rounded-xl shadow-lg flex flex-col gap-4 sm:gap-6 justify-center items-center border border-gray-200/40 dark:border-gray-800/50 hover:border-designColor/30 transition-all duration-300 backdrop-blur-md"
                 >
                   <div className="w-full flex flex-col items-center">
                     <motion.div 
                       whileHover={{ scale: 1.05 }}
-                      className="w-28 h-28 mx-auto mb-4 relative group"
+                      className="w-20 h-20 sm:w-24 sm:h-24 lgl:w-28 lgl:h-28 mx-auto mb-2 sm:mb-4 relative group"
                     >
                       <div className="w-full h-full rounded-full overflow-hidden border-4 border-designColor/30 group-hover:border-designColor/60 transition-all duration-300 shadow-lg">
                         <img
@@ -164,7 +164,7 @@ const Testimonial = () => {
                     
                     <motion.h3 
                       whileHover={{ color: "#028b7d" }}
-                      className="text-xl font-bold text-white mt-2 text-center transition-colors duration-300"
+                      className="text-xl font-bold text-[#2c2825] dark:text-white mt-2 text-center transition-colors duration-300"
                     >
                       {testimonial.name}
                     </motion.h3>
@@ -201,11 +201,11 @@ const Testimonial = () => {
                     <FaQuoteLeft className="text-4xl text-designColor opacity-30" />
                   </motion.div>
                   
-                  <div className="w-full h-full py-8 bg-gradient-to-br from-[#1e2024] via-[#1a1d21] to-[#23272b] rounded-xl shadow-shadowOne p-6 lgl:p-8 flex flex-col justify-center gap-6 border border-gray-800/50 hover:border-designColor/30 transition-all duration-300">
+                  <div className="w-full h-full py-4 sm:py-6 lgl:py-8 bg-[rgba(255,252,248,0.9)] dark:bg-gradient-to-br dark:from-[#1e2024] dark:via-[#1a1d21] dark:to-[#23272b] rounded-xl shadow-lg p-4 sm:p-6 lgl:p-8 flex flex-col justify-center gap-4 sm:gap-6 border border-gray-200/40 dark:border-gray-800/50 hover:border-designColor/30 transition-all duration-300 backdrop-blur-md">
                     <div className="flex flex-col gap-3 pb-6 border-b border-gray-700/50">
                       <motion.h3 
                         whileHover={{ color: "#028b7d" }}
-                        className="text-xl lgl:text-2xl font-semibold tracking-wide text-white transition-colors duration-300"
+                        className="text-lg sm:text-xl lgl:text-2xl font-semibold tracking-wide text-[#2c2825] dark:text-white transition-colors duration-300"
                       >
                         {testimonial.project}
                       </motion.h3>
@@ -222,7 +222,7 @@ const Testimonial = () => {
                       initial={{ opacity: 0 }}
                       animate={{ opacity: 1 }}
                       transition={{ delay: 0.7, duration: 0.5 }}
-                      className="text-base md:text-lg font-titleFont text-gray-300 leading-relaxed tracking-wide relative z-10"
+                      className="text-sm sm:text-base md:text-lg font-titleFont text-[#5a5550] dark:text-gray-300 leading-relaxed tracking-wide relative z-10"
                     >
                       "{testimonial.testimonial}"
                     </motion.p>

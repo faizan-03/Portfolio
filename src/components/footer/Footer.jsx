@@ -31,7 +31,7 @@ const Footer = () => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className="w-full py-6 bg-gray-50 dark:bg-bodycolor border-t border-gray-200 dark:border-gray-800 relative overflow-hidden"
+      className="w-full py-6 footer-warm bg-gray-50 dark:bg-bodycolor border-t warm-border border-gray-200 dark:border-gray-800 relative overflow-hidden theme-transition"
     >
       <div className="max-w-6xl mx-auto px-4 md:px-8">
         <div className="flex flex-col md:flex-row justify-between items-center gap-4">
@@ -46,7 +46,7 @@ const Footer = () => {
               href={`https://github.com/${githubUsername}`}
               target="_blank" 
               rel="noopener noreferrer"
-              className="w-9 h-9 bg-white dark:bg-[#191B1E] text-gray-600 dark:text-gray-400 rounded-lg flex items-center justify-center hover:text-designColor hover:bg-gray-100 dark:hover:bg-[#131517] transition-all duration-300 shadow-sm"
+              className="w-9 h-9 social-icon-warm social-icon-github bg-white dark:bg-[#191B1E] text-gray-600 dark:text-gray-400 rounded-lg flex items-center justify-center hover:text-designColor hover:bg-gray-100 dark:hover:bg-[#131517] transition-all duration-300 shadow-sm warm-hover"
               whileHover={{ y: -2, scale: 1.05 }}
             >
               <FaGithub />
@@ -55,7 +55,7 @@ const Footer = () => {
               href={`https://www.linkedin.com/in/${linkedinId}/`}
               target="_blank" 
               rel="noopener noreferrer"
-              className="w-9 h-9 bg-white dark:bg-[#191B1E] text-gray-600 dark:text-gray-400 rounded-lg flex items-center justify-center hover:text-blue-600 hover:bg-gray-100 dark:hover:bg-[#131517] transition-all duration-300 shadow-sm"
+              className="w-9 h-9 social-icon-warm social-icon-linkedin bg-white dark:bg-[#191B1E] text-gray-600 dark:text-gray-400 rounded-lg flex items-center justify-center hover:text-blue-600 hover:bg-gray-100 dark:hover:bg-[#131517] transition-all duration-300 shadow-sm warm-hover"
               whileHover={{ y: -2, scale: 1.05 }}
             >
               <FaLinkedinIn />
@@ -64,7 +64,7 @@ const Footer = () => {
               href={`https://www.instagram.com/${instagramUsername}/`}
               target="_blank" 
               rel="noopener noreferrer"
-              className="w-9 h-9 bg-white dark:bg-[#191B1E] text-gray-600 dark:text-gray-400 rounded-lg flex items-center justify-center hover:text-pink-500 hover:bg-gray-100 dark:hover:bg-[#131517] transition-all duration-300 shadow-sm"
+              className="w-9 h-9 social-icon-warm social-icon-instagram bg-white dark:bg-[#191B1E] text-gray-600 dark:text-gray-400 rounded-lg flex items-center justify-center hover:text-pink-500 hover:bg-gray-100 dark:hover:bg-[#131517] transition-all duration-300 shadow-sm warm-hover"
               whileHover={{ y: -2, scale: 1.05 }}
             >
               <FaInstagram />
@@ -83,7 +83,7 @@ const Footer = () => {
               smooth={true}
               offset={-70}
               duration={500}
-              className="px-6 py-2 bg-gradient-to-r from-designColor to-teal-700 text-white rounded-full cursor-pointer hover:shadow-lg hover:shadow-designColor/20 transition-all duration-300 text-sm font-medium"
+              className="px-6 py-2 btn-warm-primary bg-gradient-to-r from-designColor to-teal-700 text-white rounded-full cursor-pointer hover:shadow-lg hover:shadow-designColor/20 transition-all duration-300 text-sm font-medium warm-hover"
             >
               Back to Top
             </Link>
@@ -96,7 +96,7 @@ const Footer = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <p className="text-gray-600 dark:text-gray-400 text-sm flex items-center gap-1 justify-center">
+            <p className="warm-text-secondary text-gray-600 dark:text-gray-400 text-sm flex items-center gap-1 justify-center theme-transition">
               © {currentYear} Made with <FaHeart className="text-designColor animate-pulse" /> by {name}
             </p>
           </motion.div>

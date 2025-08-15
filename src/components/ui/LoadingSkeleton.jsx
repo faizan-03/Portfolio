@@ -1,7 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useTheme } from '../../hooks/useTheme';
 
 const LoadingSkeleton = ({ type = 'card', count = 1 }) => {
+  const { isDark } = useTheme();
+  
   const shimmer = {
     initial: { x: '-100%' },
     animate: { x: '100%' },
@@ -12,36 +15,49 @@ const LoadingSkeleton = ({ type = 'card', count = 1 }) => {
     }
   };
 
+  // Theme-aware colors
+  const skeletonColors = {
+    cardBg: isDark 
+      ? 'bg-gradient-to-br from-[#1e2024] via-[#1a1d21] to-[#23272b]' 
+      : 'warm-card bg-gradient-to-br from-[#fefcfb] via-[#f7f3f0] to-[#f0ebe6]',
+    border: isDark ? 'border-gray-800/50' : 'warm-border border-gray-200/30',
+    elementBase: isDark ? 'bg-gray-700/50' : 'skeleton-warm bg-[#f0ebe6]',
+    elementLight: isDark ? 'bg-gray-700/30' : 'skeleton-warm bg-[#f0ebe6]/70',
+    shimmerColor: isDark 
+      ? 'bg-gradient-to-r from-transparent via-white/10 to-transparent'
+      : 'bg-gradient-to-r from-transparent via-black/5 to-transparent'
+  };
+
   const SkeletonCard = () => (
-    <div className="bg-gradient-to-br from-[#1e2024] via-[#1a1d21] to-[#23272b] rounded-xl p-6 border border-gray-800/50">
+    <div className={`${skeletonColors.cardBg} rounded-xl p-6 border ${skeletonColors.border} theme-transition`}>
       <div className="relative overflow-hidden">
         {/* Image skeleton */}
-        <div className="w-full h-48 bg-gray-700/50 rounded-lg mb-4 relative overflow-hidden">
+        <div className={`w-full h-48 ${skeletonColors.elementBase} rounded-lg mb-4 relative overflow-hidden`}>
           <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+            className={`absolute inset-0 ${skeletonColors.shimmerColor}`}
             {...shimmer}
           />
         </div>
         
         {/* Title skeleton */}
-        <div className="h-6 bg-gray-700/50 rounded mb-3 relative overflow-hidden">
+        <div className={`h-6 ${skeletonColors.elementBase} rounded mb-3 relative overflow-hidden`}>
           <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+            className={`absolute inset-0 ${skeletonColors.shimmerColor}`}
             {...shimmer}
           />
         </div>
         
         {/* Description skeleton */}
         <div className="space-y-2 mb-4">
-          <div className="h-4 bg-gray-700/30 rounded relative overflow-hidden">
+          <div className={`h-4 ${skeletonColors.elementLight} rounded relative overflow-hidden`}>
             <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+              className={`absolute inset-0 ${skeletonColors.shimmerColor}`}
               {...shimmer}
             />
           </div>
-          <div className="h-4 bg-gray-700/30 rounded w-3/4 relative overflow-hidden">
+          <div className={`h-4 ${skeletonColors.elementLight} rounded w-3/4 relative overflow-hidden`}>
             <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+              className={`absolute inset-0 ${skeletonColors.shimmerColor}`}
               {...shimmer}
             />
           </div>
@@ -50,9 +66,9 @@ const LoadingSkeleton = ({ type = 'card', count = 1 }) => {
         {/* Tags skeleton */}
         <div className="flex gap-2">
           {[1, 2, 3].map((i) => (
-            <div key={i} className="h-6 w-16 bg-gray-700/30 rounded-full relative overflow-hidden">
+            <div key={i} className={`h-6 w-16 ${skeletonColors.elementLight} rounded-full relative overflow-hidden`}>
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+                className={`absolute inset-0 ${skeletonColors.shimmerColor}`}
                 {...shimmer}
               />
             </div>
@@ -64,15 +80,15 @@ const LoadingSkeleton = ({ type = 'card', count = 1 }) => {
 
   const SkeletonSkill = () => (
     <div className="space-y-2">
-      <div className="h-4 bg-gray-700/50 rounded w-24 relative overflow-hidden">
+      <div className={`h-4 ${skeletonColors.elementBase} rounded w-24 relative overflow-hidden theme-transition`}>
         <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+          className={`absolute inset-0 ${skeletonColors.shimmerColor}`}
           {...shimmer}
         />
       </div>
-      <div className="h-2 bg-gray-700/30 rounded relative overflow-hidden">
+      <div className={`h-2 ${skeletonColors.elementLight} rounded relative overflow-hidden theme-transition`}>
         <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+          className={`absolute inset-0 ${skeletonColors.shimmerColor}`}
           {...shimmer}
         />
       </div>
@@ -81,32 +97,32 @@ const LoadingSkeleton = ({ type = 'card', count = 1 }) => {
 
   const SkeletonTestimonial = () => (
     <div className="flex flex-col lgl:flex-row gap-8">
-      <div className="w-full lgl:w-[35%] bg-gradient-to-br from-[#1e2024] via-[#1a1d21] to-[#23272b] p-8 rounded-xl">
-        <div className="w-28 h-28 bg-gray-700/50 rounded-full mx-auto mb-4 relative overflow-hidden">
+      <div className={`w-full lgl:w-[35%] ${skeletonColors.cardBg} p-8 rounded-xl border ${skeletonColors.border} theme-transition`}>
+        <div className={`w-28 h-28 ${skeletonColors.elementBase} rounded-full mx-auto mb-4 relative overflow-hidden`}>
           <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+            className={`absolute inset-0 ${skeletonColors.shimmerColor}`}
             {...shimmer}
           />
         </div>
-        <div className="h-6 bg-gray-700/50 rounded mb-2 relative overflow-hidden">
+        <div className={`h-6 ${skeletonColors.elementBase} rounded mb-2 relative overflow-hidden`}>
           <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+            className={`absolute inset-0 ${skeletonColors.shimmerColor}`}
             {...shimmer}
           />
         </div>
-        <div className="h-4 bg-gray-700/30 rounded relative overflow-hidden">
+        <div className={`h-4 ${skeletonColors.elementLight} rounded relative overflow-hidden`}>
           <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+            className={`absolute inset-0 ${skeletonColors.shimmerColor}`}
             {...shimmer}
           />
         </div>
       </div>
-      <div className="w-full lgl:w-[65%] bg-gradient-to-br from-[#1e2024] via-[#1a1d21] to-[#23272b] p-8 rounded-xl">
+      <div className={`w-full lgl:w-[65%] ${skeletonColors.cardBg} p-8 rounded-xl border ${skeletonColors.border} theme-transition`}>
         <div className="space-y-3">
           {[1, 2, 3, 4].map((i) => (
-            <div key={i} className="h-4 bg-gray-700/30 rounded relative overflow-hidden">
+            <div key={i} className={`h-4 ${skeletonColors.elementLight} rounded relative overflow-hidden`}>
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent"
+                className={`absolute inset-0 ${skeletonColors.shimmerColor}`}
                 {...shimmer}
               />
             </div>

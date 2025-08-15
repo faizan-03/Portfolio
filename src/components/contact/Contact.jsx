@@ -258,7 +258,7 @@ const Contact = () => {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="w-full max-w-5xl mx-auto bg-white/95 dark:bg-[#1E2024] p-6 md:p-8 rounded-xl shadow-shadowOne relative overflow-hidden border border-gray-200/50 dark:border-gray-700/50 backdrop-blur-sm"
+          className="w-full max-w-5xl mx-auto warm-card bg-[rgba(255,252,248,0.9)] dark:bg-[#1E2024] p-4 sm:p-6 md:p-8 rounded-xl shadow-lg relative overflow-hidden border border-gray-200/40 dark:border-gray-700/50 backdrop-blur-md theme-transition"
         >
           {/* Animated background */}
           <motion.div 
@@ -277,7 +277,7 @@ const Contact = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 relative z-10">
             {/* Name Field */}
             <motion.div variants={itemVariants} className="flex flex-col gap-2">
-              <label htmlFor="name" className="text-sm text-gray-700 dark:text-gray-400">Your Name <span className="text-designColor">*</span></label>
+              <label htmlFor="name" className="text-sm warm-text-secondary text-gray-700 dark:text-gray-400 theme-transition">Your Name <span className="text-designColor">*</span></label>
               <motion.input
                 type="text"
                 id="name"
@@ -287,7 +287,7 @@ const Contact = () => {
                 whileFocus="focus"
                 whileTap="tap"
                 variants={inputVariants}
-                className={`w-full bg-gray-50 dark:bg-[#191B1E] rounded-lg border-2 ${errors.name ? 'border-red-500' : 'border-gray-200 dark:border-transparent'} p-4 text-gray-900 dark:text-white outline-none focus:border-designColor duration-300`}
+                className={`w-full warm-focus bg-[#f7f3f0] dark:bg-[#191B1E] rounded-lg border-2 ${errors.name ? 'border-red-500' : 'border-gray-200/40 dark:border-transparent'} p-3 sm:p-4 text-base text-[#2c2825] dark:text-white outline-none focus:border-designColor duration-300 theme-transition backdrop-blur-sm touch-manipulation`}
                 placeholder="Enter your name"
               />
               {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
@@ -423,7 +423,7 @@ const Contact = () => {
                   y: -1
                 }}
                 whileTap={{ scale: 0.98 }}
-                className="w-full bg-gradient-to-r from-designColor to-teal-600 hover:from-teal-600 hover:to-designColor text-white py-4 px-6 rounded-lg font-semibold flex items-center justify-center gap-3 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed relative overflow-hidden group shadow-lg hover:shadow-xl"
+                className="w-full btn-warm-primary bg-gradient-to-r from-designColor to-teal-600 hover:from-teal-600 hover:to-designColor text-white py-4 px-6 rounded-lg font-semibold flex items-center justify-center gap-3 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed relative overflow-hidden group shadow-lg hover:shadow-xl warm-hover theme-transition"
               >
                 {isSubmitting ? (
                   <>

@@ -145,7 +145,7 @@
   transform: translateY(-2px) !important;
 }
 /* T
-heme Support */
+heme Support with Enhanced Warm Palette */
 :root {
   --bg-primary: #1e2024;
   --bg-secondary: #23272b;
@@ -156,12 +156,36 @@ heme Support */
 }
 
 .light {
-  --bg-primary: #ffffff;
-  --bg-secondary: #f8f9fa;
-  --text-primary: #1a1a1a;
-  --text-secondary: #666666;
-  --border-color: #e5e7eb;
-  --accent-color: #0066cc;
+  /* Warm, eye-soothing color palette */
+  --bg-primary: #fefcfb;
+  --bg-secondary: #f7f3f0;
+  --bg-tertiary: #f0ebe6;
+  --text-primary: #2c2825;
+  --text-secondary: #5a5550;
+  --text-tertiary: #6b6560;
+  --border-color: rgba(45, 40, 37, 0.1);
+  --accent-color: #0d8b7d;
+  
+  /* Card and surface colors */
+  --card-bg: rgba(255, 252, 248, 0.8);
+  --card-bg-hover: rgba(255, 252, 248, 0.95);
+  --surface-bg: rgba(247, 243, 240, 0.6);
+  
+  /* Shadow colors */
+  --shadow-light: rgba(45, 40, 37, 0.08);
+  --shadow-medium: rgba(45, 40, 37, 0.12);
+  --shadow-heavy: rgba(45, 40, 37, 0.16);
+  
+  /* Icon colors */
+  --icon-default: #4a5568;
+  --icon-github: #4a5568;
+  --icon-linkedin: #0ea5e9;
+  --icon-instagram-start: #f09433;
+  --icon-instagram-end: #bc1888;
+  
+  /* Skeleton colors */
+  --skeleton-base: #f0ebe6;
+  --skeleton-shimmer: rgba(45, 40, 37, 0.05);
 }
 
 .dark {
@@ -324,51 +348,52 @@ upport */
 
 .light body,
 .light .bg-bodycolor {
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 50%, #f1f5f9 100%) !important;
-  color: #1a202c !important;
+  background: linear-gradient(135deg, #fefcfb 0%, #f7f3f0 50%, #f0ebe6 100%) !important;
+  color: var(--text-primary) !important;
   min-height: 100vh;
 }
 
 .light .text-lightText {
-  color: #2d3748 !important;
+  color: var(--text-secondary) !important;
 }
 
 .light .border-b-black {
-  border-bottom-color: rgba(203, 213, 225, 0.6) !important;
+  border-bottom-color: var(--border-color) !important;
 }
 
 .light .text-white {
-  color: #1a202c !important;
+  color: var(--text-primary) !important;
 }
 
 .light .text-gray-300 {
-  color: #4a5568 !important;
+  color: var(--text-secondary) !important;
 }
 
 .light .text-gray-400 {
-  color: #718096 !important;
+  color: var(--text-tertiary) !important;
 }
 
 .light .text-gray-500 {
-  color: #a0aec0 !important;
+  color: var(--text-tertiary) !important;
 }
 
 .light .text-gray-600 {
-  color: #2d3748 !important;
+  color: var(--text-primary) !important;
 }
 
 .light .bg-gradient-to-br {
-  background: linear-gradient(to bottom right, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.8), rgba(241, 245, 249, 0.9)) !important;
-  backdrop-filter: blur(10px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  background: linear-gradient(to bottom right, var(--card-bg), var(--surface-bg), var(--card-bg-hover)) !important;
+  backdrop-filter: blur(15px) !important;
+  border: 1px solid var(--border-color) !important;
+  box-shadow: 0 8px 32px var(--shadow-light) !important;
 }
 
 .light .bg-gradient-to-r {
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(248, 250, 252, 0.9)) !important;
+  background: linear-gradient(to right, var(--card-bg), var(--surface-bg)) !important;
 }
 
 .light .shadow-shadowOne {
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08), 0 8px 16px rgba(0, 0, 0, 0.04) !important;
+  box-shadow: 0 20px 40px var(--shadow-light), 0 8px 16px var(--shadow-medium) !important;
 }
 
 .light .border-gray-800 {
@@ -1409,4 +1434,1626 @@ Clean and consistent hover effects throughout the application */
 
 .gpu-accelerated:hover {
   will-change: transform, box-shadow;
+}/* En
+hanced Warm Light Mode Styles */
+.light .warm-bg {
+  background: var(--bg-primary) !important;
+}
+
+.light .warm-card {
+  background: var(--card-bg) !important;
+  backdrop-filter: blur(15px) !important;
+  border: 1px solid var(--border-color) !important;
+  box-shadow: 0 8px 32px var(--shadow-light) !important;
+}
+
+.light .warm-card:hover {
+  background: var(--card-bg-hover) !important;
+  box-shadow: 0 12px 40px var(--shadow-medium) !important;
+  transform: translateY(-2px) !important;
+}
+
+.light .warm-text-primary {
+  color: var(--text-primary) !important;
+}
+
+.light .warm-text-secondary {
+  color: var(--text-secondary) !important;
+}
+
+.light .warm-text-tertiary {
+  color: var(--text-tertiary) !important;
+}
+
+.light .warm-border {
+  border-color: var(--border-color) !important;
+}
+
+.light .warm-shadow {
+  box-shadow: 0 8px 32px var(--shadow-light) !important;
+}
+
+.light .warm-shadow-hover:hover {
+  box-shadow: 0 12px 40px var(--shadow-medium) !important;
+}
+
+/* Enhanced navbar for light mode */
+.light .navbar {
+  background: var(--card-bg-hover) !important;
+  backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  box-shadow: 0 2px 20px var(--shadow-light) !important;
+}
+
+/* Enhanced project cards */
+.light .modern-card {
+  background: var(--card-bg) !important;
+  backdrop-filter: blur(15px) !important;
+  border: 1px solid var(--border-color) !important;
+  box-shadow: 0 8px 32px var(--shadow-light) !important;
+}
+
+.light .modern-card:hover {
+  background: var(--card-bg-hover) !important;
+  box-shadow: 0 15px 35px var(--shadow-medium) !important;
+  transform: translateY(-4px) !important;
+}
+
+/* Enhanced form elements */
+.light input,
+.light select,
+.light textarea {
+  background: var(--surface-bg) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+.light input:focus,
+.light select:focus,
+.light textarea:focus {
+  border-color: var(--accent-color) !important;
+  background: var(--card-bg) !important;
+  box-shadow: 0 0 0 3px rgba(13, 139, 125, 0.1) !important;
+}
+
+.light input::placeholder,
+.light textarea::placeholder {
+  color: var(--text-tertiary) !important;
+}
+
+/* Enhanced buttons */
+.light .btn-warm-primary {
+  background: linear-gradient(135deg, var(--accent-color), #0d9488) !important;
+  color: white !important;
+  box-shadow: 0 4px 15px rgba(13, 139, 125, 0.2) !important;
+  border: none !important;
+}
+
+.light .btn-warm-primary:hover {
+  box-shadow: 0 8px 25px rgba(13, 139, 125, 0.3) !important;
+  transform: translateY(-2px) !important;
+}
+
+.light .btn-warm-secondary {
+  background: var(--card-bg) !important;
+  border: 2px solid var(--accent-color) !important;
+  color: var(--accent-color) !important;
+  box-shadow: 0 4px 15px var(--shadow-light) !important;
+}
+
+.light .btn-warm-secondary:hover {
+  background: var(--accent-color) !important;
+  color: white !important;
+  box-shadow: 0 8px 25px rgba(13, 139, 125, 0.3) !important;
+}
+
+/* Enhanced skeleton loading for light mode */
+.light .skeleton-warm {
+  background: var(--skeleton-base) !important;
+}
+
+.light .skeleton-warm::before {
+  background: linear-gradient(90deg, transparent, var(--skeleton-shimmer), transparent) !important;
+}
+
+/* Enhanced social icons */
+.light .social-icon-warm {
+  background: var(--card-bg) !important;
+  backdrop-filter: blur(10px) !important;
+  border: 1px solid var(--border-color) !important;
+  color: var(--icon-default) !important;
+}
+
+.light .social-icon-warm:hover {
+  background: var(--card-bg-hover) !important;
+  box-shadow: 0 8px 25px var(--shadow-light) !important;
+  transform: translateY(-2px) scale(1.05) !important;
+}
+
+.light .social-icon-github:hover {
+  color: var(--icon-github) !important;
+}
+
+.light .social-icon-linkedin:hover {
+  color: var(--icon-linkedin) !important;
+}
+
+.light .social-icon-instagram:hover {
+  background: linear-gradient(45deg, var(--icon-instagram-start), var(--icon-instagram-end)) !important;
+  color: white !important;
+}
+
+/* Enhanced footer */
+.light .footer-warm {
+  background: var(--card-bg-hover) !important;
+  border-top: 1px solid var(--border-color) !important;
+  color: var(--text-primary) !important;
+}
+
+.light .footer-warm .text-gray-600 {
+  color: var(--text-secondary) !important;
+}
+
+.light .footer-warm .text-gray-400 {
+  color: var(--text-tertiary) !important;
+}/* S
+mooth transitions for theme changes */
+.theme-transition {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.theme-transition-fast {
+  transition: all 0.2s ease !important;
+}
+
+.theme-transition-slow {
+  transition: all 0.5s ease !important;
+}
+
+/* Enhanced glassmorphism effects */
+.light .glass-warm {
+  background: var(--card-bg) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+.light .glass-warm-strong {
+  background: var(--card-bg-hover) !important;
+  backdrop-filter: blur(25px) !important;
+  border: 1px solid rgba(45, 40, 37, 0.15) !important;
+}
+
+/* Enhanced hover effects */
+.warm-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.light .warm-hover:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 10px 25px var(--shadow-light) !important;
+}
+
+/* Better text selection */
+.light ::selection {
+  background: rgba(13, 139, 125, 0.2) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Enhanced focus states */
+.light .warm-focus:focus {
+  outline: 2px solid var(--accent-color) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 3px rgba(13, 139, 125, 0.1) !important;
+}
+
+/* Responsive adjustments for warm theme */
+@media (max-width: 768px) {
+  .light .warm-card {
+    box-shadow: 0 4px 20px var(--shadow-light) !important;
+  }
+  
+  .light .warm-card:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 8px 25px var(--shadow-medium) !important;
+  }
+}
+
+/* Print styles for light mode */
+@media print {
+  .light * {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+  }
+}/* E
+nhanced Social Media Icon Styles */
+.light .social-icon-instagram:hover {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) !important;
+  color: white !important;
+  border-color: transparent !important;
+}
+
+.light .social-icon-github:hover {
+  color: #4a5568 !important;
+  background: var(--card-bg-hover) !important;
+}
+
+.light .social-icon-linkedin:hover {
+  color: #0ea5e9 !important;
+  background: var(--card-bg-hover) !important;
+}
+
+/* Enhanced footer styling */
+.light .footer-warm {
+  background: var(--card-bg-hover) !important;
+  backdrop-filter: blur(20px) !important;
+  border-top: 1px solid var(--border-color) !important;
+}
+
+/* Better social icon base styling for light mode */
+.light .social-icon-warm {
+  background: var(--card-bg) !important;
+  color: var(--text-secondary) !important;
+  border: 1px solid var(--border-color) !important;
+  box-shadow: 0 2px 8px var(--shadow-light) !important;
+}
+
+.light .social-icon-warm:hover {
+  box-shadow: 0 4px 15px var(--shadow-medium) !important;
+  transform: translateY(-2px) scale(1.05) !important;
+}
+
+/* Enhanced back to top button */
+.light .btn-warm-primary {
+  background: linear-gradient(135deg, var(--accent-color), #0d9488) !important;
+  box-shadow: 0 4px 15px rgba(13, 139, 125, 0.25) !important;
+}
+
+.light .btn-warm-primary:hover {
+  box-shadow: 0 8px 25px rgba(13, 139, 125, 0.35) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Dark mode footer text fix */
+.dark .footer-warm {
+  background: #1a1d21 !important;
+  color: #e2e8f0 !important;
+}
+
+.dark .footer-warm .warm-text-secondary {
+  color: #9ca3af !important;
+}
+
+.dark .footer-warm .text-gray-600 {
+  color: #9ca3af !important;
+}
+
+.dark .footer-warm .text-gray-400 {
+  color: #6b7280 !important;
+}/* Enhanc
+ed Social Icons for Banner/Leftbanner */
+.light .social-icon-enhanced.social-icon-warm {
+  background: var(--card-bg) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-secondary) !important;
+  box-shadow: 0 2px 8px var(--shadow-light) !important;
+}
+
+.light .social-icon-enhanced.social-icon-warm:hover {
+  background: var(--card-bg-hover) !important;
+  box-shadow: 0 8px 25px var(--shadow-medium) !important;
+  border-color: var(--accent-color) !important;
+}
+
+.light .social-icon-enhanced.social-icon-github:hover {
+  color: var(--icon-github) !important;
+  background: var(--card-bg-hover) !important;
+}
+
+.light .social-icon-enhanced.social-icon-linkedin:hover {
+  color: var(--icon-linkedin) !important;
+  background: rgba(14, 165, 233, 0.1) !important;
+  border-color: var(--icon-linkedin) !important;
+}
+
+.light .social-icon-enhanced.social-icon-instagram:hover {
+  background: linear-gradient(45deg, var(--icon-instagram-start), var(--icon-instagram-end)) !important;
+  color: white !important;
+  border-color: transparent !important;
+}
+
+/* Enhanced Project Card Icons */
+.light .social-icon-warm.bg-black {
+  background: var(--card-bg) !important;
+  color: var(--text-secondary) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+.light .social-icon-warm.bg-black:hover {
+  background: var(--card-bg-hover) !important;
+  color: var(--accent-color) !important;
+  box-shadow: 0 4px 15px var(--shadow-medium) !important;
+}
+
+.light .social-icon-github.bg-black:hover {
+  color: var(--icon-github) !important;
+  background: var(--card-bg-hover) !important;
+}
+
+/* Enhanced Project Card Buttons */
+.light .btn-warm-secondary.bg-gray-800 {
+  background: var(--card-bg) !important;
+  color: var(--text-primary) !important;
+  border: 2px solid var(--border-color) !important;
+}
+
+.light .btn-warm-secondary.bg-gray-800:hover {
+  background: var(--accent-color) !important;
+  color: white !important;
+  border-color: var(--accent-color) !important;
+}
+
+/* Enhanced tooltips for light mode */
+.light .group:hover .bg-gray-900 {
+  background: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+  color: white !important;
+}
+
+.light .group:hover .bg-gray-900::before {
+  background: var(--text-primary) !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Better contrast for disabled states */
+.light .bg-gray-800\/50 {
+  background: rgba(247, 243, 240, 0.5) !important;
+  color: var(--text-tertiary) !important;
+}
+
+/* Enhanced hover effects for all social icons */
+.light .social-icon-warm {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.light .social-icon-warm:hover {
+  transform: translateY(-2px) scale(1.05) !important;
+}
+
+/* Special effects for Instagram gradient */
+.light .social-icon-instagram:hover {
+  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) !important;
+  color: white !important;
+  border-color: transparent !important;
+  box-shadow: 0 8px 25px rgba(240, 148, 51, 0.3) !important;
+}
+
+/* Enhanced focus states for accessibility */
+.light .social-icon-warm:focus {
+  outline: 2px solid var(--accent-color) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 3px rgba(13, 139, 125, 0.1) !important;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .light .social-icon-warm:hover {
+    transform: translateY(-1px) scale(1.02) !important;
+    box-shadow: 0 4px 15px var(--shadow-light) !important;
+  }
+  
+  .light .social-icon-enhanced:hover {
+    transform: scale(1.1) !important;
+  }
+}/* En
+hanced Loading Skeleton Styles */
+.light .skeleton-warm {
+  background: var(--skeleton-base) !important;
+  border: 1px solid rgba(45, 40, 37, 0.05) !important;
+}
+
+.light .skeleton-warm::before {
+  background: linear-gradient(90deg, transparent, var(--skeleton-shimmer), transparent) !important;
+}
+
+/* Enhanced skeleton card backgrounds */
+.light .warm-card.bg-gradient-to-br {
+  background: linear-gradient(to bottom right, var(--card-bg), var(--surface-bg), var(--card-bg-hover)) !important;
+  backdrop-filter: blur(10px) !important;
+  box-shadow: 0 4px 20px var(--shadow-light) !important;
+}
+
+/* Better skeleton element colors */
+.light .bg-\[#f0ebe6\] {
+  background: var(--skeleton-base) !important;
+}
+
+.light .bg-\[#f0ebe6\]\/70 {
+  background: rgba(240, 235, 230, 0.7) !important;
+}
+
+/* Enhanced shimmer effect for light mode */
+.light .bg-gradient-to-r.from-transparent.via-black\/5.to-transparent {
+  background: linear-gradient(90deg, transparent, var(--skeleton-shimmer), transparent) !important;
+}
+
+/* Smooth skeleton transitions */
+.skeleton-transition {
+  transition: all 0.3s ease !important;
+}
+
+/* Better skeleton borders */
+.light .warm-border.border-gray-200\/30 {
+  border-color: rgba(45, 40, 37, 0.08) !important;
+}
+
+/* Enhanced skeleton hover states (for interactive skeletons) */
+.light .skeleton-warm:hover {
+  background: rgba(240, 235, 230, 0.9) !important;
+  transform: translateY(-1px) !important;
+}
+
+/* Skeleton pulse animation for better loading indication */
+@keyframes skeleton-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.light .skeleton-warm {
+  animation: skeleton-pulse 2s ease-in-out infinite !important;
+}
+
+/* Better skeleton text placeholders */
+.light .skeleton-text {
+  background: linear-gradient(90deg, var(--skeleton-base) 25%, rgba(240, 235, 230, 0.5) 50%, var(--skeleton-base) 75%) !important;
+  background-size: 200% 100% !important;
+  animation: skeleton-shimmer 1.5s infinite linear !important;
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Mobile skeleton optimizations */
+@media (max-width: 768px) {
+  .light .warm-card {
+    box-shadow: 0 2px 15px var(--shadow-light) !important;
+  }
+  
+  .light .skeleton-warm {
+    animation-duration: 2.5s !important;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .light .skeleton-warm {
+    animation: none !important;
+  }
+  
+  .skeleton-shimmer {
+    animation: none !important;
+  }
+}
+
+/* High contrast mode skeleton support */
+@media (prefers-contrast: high) {
+  .light .skeleton-warm {
+    background: #e0e0e0 !important;
+    border: 2px solid #999 !important;
+  }
+}/* Enhanced
+ Button and Interactive Element Styles */
+
+/* Primary Buttons */
+.light .btn-warm-primary {
+  background: linear-gradient(135deg, var(--accent-color), #0d9488) !important;
+  color: white !important;
+  box-shadow: 0 4px 15px rgba(13, 139, 125, 0.25) !important;
+  border: none !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.light .btn-warm-primary:hover {
+  box-shadow: 0 8px 25px rgba(13, 139, 125, 0.35) !important;
+  transform: translateY(-2px) !important;
+  background: linear-gradient(135deg, #0d9488, var(--accent-color)) !important;
+}
+
+.light .btn-warm-primary:active {
+  transform: translateY(0) !important;
+  box-shadow: 0 4px 15px rgba(13, 139, 125, 0.25) !important;
+}
+
+/* Secondary Buttons */
+.light .btn-warm-secondary {
+  background: var(--card-bg) !important;
+  border: 2px solid var(--accent-color) !important;
+  color: var(--accent-color) !important;
+  box-shadow: 0 4px 15px var(--shadow-light) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.light .btn-warm-secondary:hover {
+  background: var(--accent-color) !important;
+  color: white !important;
+  box-shadow: 0 8px 25px rgba(13, 139, 125, 0.3) !important;
+  transform: translateY(-2px) !important;
+}
+
+/* Form Elements */
+.light input,
+.light select,
+.light textarea {
+  background: var(--surface-bg) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-primary) !important;
+  transition: all 0.3s ease !important;
+}
+
+.light input:focus,
+.light select:focus,
+.light textarea:focus {
+  border-color: var(--accent-color) !important;
+  background: var(--card-bg) !important;
+  box-shadow: 0 0 0 3px rgba(13, 139, 125, 0.1) !important;
+  outline: none !important;
+}
+
+.light input::placeholder,
+.light textarea::placeholder {
+  color: var(--text-tertiary) !important;
+}
+
+/* Enhanced Form Container */
+.light .warm-card form,
+.light form.warm-card {
+  background: var(--card-bg-hover) !important;
+  backdrop-filter: blur(20px) !important;
+  border: 1px solid var(--border-color) !important;
+  box-shadow: 0 8px 32px var(--shadow-light) !important;
+}
+
+/* Form Labels */
+.light .warm-text-secondary {
+  color: var(--text-secondary) !important;
+}
+
+/* Select Dropdowns */
+.light select option {
+  background: var(--card-bg-hover) !important;
+  color: var(--text-primary) !important;
+}
+
+/* Enhanced Focus States */
+.light .warm-focus:focus {
+  outline: 2px solid var(--accent-color) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 3px rgba(13, 139, 125, 0.1) !important;
+}
+
+/* Mobile Menu Button */
+.light .warm-text-secondary {
+  color: var(--text-secondary) !important;
+}
+
+.light .warm-text-secondary:hover {
+  color: var(--accent-color) !important;
+}
+
+/* Theme Toggle Button Enhancements */
+.light .btn-warm-primary.fixed {
+  background: linear-gradient(135deg, var(--accent-color), #0d9488) !important;
+  border-color: rgba(13, 139, 125, 0.2) !important;
+  box-shadow: 0 8px 25px rgba(13, 139, 125, 0.2) !important;
+}
+
+.light .btn-warm-primary.fixed:hover {
+  box-shadow: 0 12px 35px rgba(13, 139, 125, 0.3) !important;
+  transform: translateY(-2px) scale(1.1) !important;
+}
+
+/* Progress Indicator Button */
+.light .bg-gray-900\/80 {
+  background: rgba(255, 252, 248, 0.9) !important;
+  color: var(--accent-color) !important;
+  border-color: var(--accent-color) !important;
+}
+
+.light .bg-gray-900\/80:hover {
+  background: var(--accent-color) !important;
+  color: white !important;
+}
+
+/* Navigation Buttons */
+.light .bg-\[#0c1821\] {
+  background: var(--card-bg) !important;
+  color: var(--text-secondary) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+.light .bg-\[#0c1821\]:hover {
+  background: var(--card-bg-hover) !important;
+  color: var(--accent-color) !important;
+  box-shadow: 0 4px 15px var(--shadow-medium) !important;
+}
+
+/* Slider Arrow Buttons */
+.light .bg-black\/80 {
+  background: var(--card-bg) !important;
+  color: var(--text-secondary) !important;
+  border: 1px solid var(--border-color) !important;
+}
+
+.light .bg-black\/80:hover {
+  background: var(--accent-color) !important;
+  color: white !important;
+  box-shadow: 0 4px 15px rgba(13, 139, 125, 0.3) !important;
+}
+
+/* Certificate View Buttons */
+.light .bg-designColor\/20 {
+  background: rgba(13, 139, 125, 0.1) !important;
+  color: var(--accent-color) !important;
+  border: 1px solid rgba(13, 139, 125, 0.2) !important;
+}
+
+.light .bg-designColor\/20:hover {
+  background: var(--accent-color) !important;
+  color: white !important;
+}
+
+/* Enhanced Hover Effects */
+.light .warm-hover:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 8px 25px var(--shadow-medium) !important;
+}
+
+/* Button Groups */
+.light .btn-group {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.light .btn-group .btn-warm-primary,
+.light .btn-group .btn-warm-secondary {
+  flex: 1;
+  min-width: 120px;
+}
+
+/* Loading States */
+.light .btn-warm-primary:disabled {
+  background: var(--surface-bg) !important;
+  color: var(--text-tertiary) !important;
+  box-shadow: none !important;
+  transform: none !important;
+  cursor: not-allowed !important;
+}
+
+/* Success/Error States */
+.light .bg-green-500 {
+  background: rgba(34, 197, 94, 0.1) !important;
+  color: #059669 !important;
+  border: 1px solid rgba(34, 197, 94, 0.2) !important;
+}
+
+.light .bg-red-500 {
+  background: rgba(239, 68, 68, 0.1) !important;
+  color: #dc2626 !important;
+  border: 1px solid rgba(239, 68, 68, 0.2) !important;
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .light .btn-warm-primary,
+  .light .btn-warm-secondary {
+    padding: 0.75rem 1.25rem !important;
+    font-size: 0.875rem !important;
+  }
+  
+  .light .warm-hover:hover {
+    transform: translateY(-1px) !important;
+    box-shadow: 0 4px 15px var(--shadow-light) !important;
+  }
+  
+  .light input,
+  .light select,
+  .light textarea {
+    padding: 0.875rem !important;
+    font-size: 1rem !important;
+  }
+}
+
+/* Accessibility Improvements */
+.light .btn-warm-primary:focus,
+.light .btn-warm-secondary:focus {
+  outline: 2px solid var(--accent-color) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 3px rgba(13, 139, 125, 0.1) !important;
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .light .btn-warm-primary {
+    background: #000 !important;
+    color: #fff !important;
+    border: 2px solid #000 !important;
+  }
+  
+  .light .btn-warm-secondary {
+    background: #fff !important;
+    color: #000 !important;
+    border: 2px solid #000 !important;
+  }
+}/* E
+nhanced Theme Transition System */
+
+/* Global transition for theme changes */
+.theme-transitioning * {
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Smooth theme transition classes */
+.theme-transition {
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.theme-transition-fast {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.theme-transition-slow {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Enhanced root element transitions */
+:root {
+  transition: color-scheme 0.3s ease !important;
+}
+
+html {
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+body {
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Prevent flash of unstyled content during theme transitions */
+.theme-transitioning {
+  pointer-events: none;
+}
+
+.theme-transitioning * {
+  pointer-events: none;
+}
+
+/* Enhanced transition for specific elements */
+.theme-transitioning .bg-bodycolor,
+.theme-transitioning .bg-gradient-to-br,
+.theme-transitioning .bg-gradient-to-r {
+  transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Smooth transitions for cards and surfaces */
+.theme-transitioning .warm-card,
+.theme-transitioning .modern-card,
+.theme-transitioning .glass-warm {
+  transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              backdrop-filter 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Enhanced button transitions */
+.theme-transitioning .btn-warm-primary,
+.theme-transitioning .btn-warm-secondary {
+  transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Smooth icon transitions */
+.theme-transitioning .social-icon-warm,
+.theme-transitioning .social-icon-enhanced {
+  transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Enhanced form element transitions */
+.theme-transitioning input,
+.theme-transitioning select,
+.theme-transitioning textarea {
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Skeleton transition improvements */
+.theme-transitioning .skeleton-warm {
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Text transition improvements */
+.theme-transitioning .warm-text-primary,
+.theme-transitioning .warm-text-secondary,
+.theme-transitioning .warm-text-tertiary {
+  transition: color 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Enhanced navbar transitions */
+.theme-transitioning .navbar {
+  transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              backdrop-filter 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Enhanced footer transitions */
+.theme-transitioning .footer-warm {
+  transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Prevent layout shift during transitions */
+.theme-transitioning * {
+  will-change: background-color, color, border-color, box-shadow;
+}
+
+/* Optimize performance during transitions */
+.theme-transitioning {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Enhanced transition for gradient backgrounds */
+.theme-transitioning .bg-gradient-to-br,
+.theme-transitioning .bg-gradient-to-r,
+.theme-transitioning .bg-gradient-to-l,
+.theme-transitioning .bg-gradient-to-t,
+.theme-transitioning .bg-gradient-to-b {
+  transition: background-image 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Smooth transition for shadows */
+.theme-transitioning .shadow-shadowOne,
+.theme-transitioning .warm-shadow,
+.theme-transitioning .hover\:shadow-lg:hover {
+  transition: box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Enhanced transition for borders */
+.theme-transitioning .border-b-black,
+.theme-transitioning .warm-border,
+.theme-transitioning .border-gray-800,
+.theme-transitioning .border-gray-700,
+.theme-transitioning .border-gray-600 {
+  transition: border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Smooth transition for backdrop filters */
+.theme-transitioning [class*="backdrop-blur"] {
+  transition: backdrop-filter 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Enhanced transition timing for different elements */
+.theme-transitioning .bg-bodycolor {
+  transition-delay: 0ms !important;
+}
+
+.theme-transitioning .warm-card {
+  transition-delay: 50ms !important;
+}
+
+.theme-transitioning .btn-warm-primary,
+.theme-transitioning .btn-warm-secondary {
+  transition-delay: 100ms !important;
+}
+
+.theme-transitioning .social-icon-warm {
+  transition-delay: 150ms !important;
+}
+
+/* Accessibility: Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .theme-transitioning * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+  
+  .theme-transition,
+  .theme-transition-fast,
+  .theme-transition-slow {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* High contrast mode adjustments */
+@media (prefers-contrast: high) {
+  .theme-transitioning * {
+    transition-duration: 0.1s !important;
+  }
+}
+
+/* Enhanced focus transitions during theme changes */
+.theme-transitioning *:focus {
+  transition: outline-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+/* Smooth transition for selection colors */
+.theme-transitioning ::selection {
+  transition: background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              color 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}/* E
+nhanced Navigation and Header Styles */
+
+/* Enhanced Navbar Styling */
+.light .navbar {
+  background: var(--card-bg-hover) !important;
+  backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  box-shadow: 0 2px 20px var(--shadow-light) !important;
+}
+
+.dark .navbar {
+  background: rgba(33, 36, 40, 0.95) !important;
+  backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid rgba(75, 85, 99, 0.6) !important;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Enhanced Navigation Links */
+.light .nav-link {
+  color: var(--text-secondary) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.light .nav-link:hover {
+  color: var(--accent-color) !important;
+  background: rgba(13, 139, 125, 0.05) !important;
+  transform: translateY(-1px) !important;
+}
+
+.dark .nav-link:hover {
+  color: #14b8a6 !important;
+  background: rgba(20, 184, 166, 0.1) !important;
+}
+
+/* Enhanced Active Link Indicator */
+.light .nav-link .bg-gradient-to-r {
+  background: linear-gradient(to right, var(--accent-color), #0d9488) !important;
+}
+
+/* Enhanced Mobile Menu */
+.light .navbar .warm-card {
+  background: var(--card-bg-hover) !important;
+  backdrop-filter: blur(25px) !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  box-shadow: 0 8px 32px var(--shadow-medium) !important;
+}
+
+/* Enhanced Logo/Brand Text */
+.light .warm-text-primary {
+  color: var(--text-primary) !important;
+}
+
+.light .gradient-name {
+  background: linear-gradient(135deg, var(--accent-color), #0d9488, #0891b2, #2563eb) !important;
+  background-size: 300% 300% !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  animation: gradient-shift 4s ease infinite !important;
+}
+
+/* Enhanced Mobile Menu Button */
+.light .warm-text-secondary {
+  color: var(--text-secondary) !important;
+}
+
+.light .warm-text-secondary:hover {
+  color: var(--accent-color) !important;
+  background: rgba(13, 139, 125, 0.05) !important;
+}
+
+/* Enhanced Progress Indicator */
+.light .bg-gray-900\/80 {
+  background: var(--card-bg-hover) !important;
+  color: var(--accent-color) !important;
+  border-color: var(--accent-color) !important;
+  backdrop-filter: blur(15px) !important;
+}
+
+.light .bg-gray-900\/80:hover {
+  background: var(--accent-color) !important;
+  color: white !important;
+  box-shadow: 0 4px 15px rgba(13, 139, 125, 0.3) !important;
+}
+
+/* Enhanced Progress Bar */
+.light .bg-gradient-to-r.from-blue-500 {
+  background: linear-gradient(to right, var(--accent-color), #0d9488, #06b6d4) !important;
+}
+
+/* Enhanced Navigation Hover Effects */
+.light .nav-link {
+  position: relative;
+  overflow: hidden;
+}
+
+.light .nav-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(13, 139, 125, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.light .nav-link:hover::before {
+  left: 100%;
+}
+
+/* Enhanced Mobile Menu Animation */
+.light .navbar .warm-card {
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Enhanced Navigation Typography */
+.light .navbar h1 {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.light .nav-link {
+  font-weight: 500;
+  letter-spacing: 0.025em;
+}
+
+/* Enhanced Focus States for Navigation */
+.light .nav-link:focus {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(13, 139, 125, 0.1);
+}
+
+/* Enhanced Sticky Navigation */
+.light .navbar.sticky {
+  background: var(--card-bg) !important;
+  box-shadow: 0 4px 25px var(--shadow-medium) !important;
+}
+
+/* Enhanced Navigation Responsiveness */
+@media (max-width: 768px) {
+  .light .navbar {
+    padding: 0 1rem;
+  }
+  
+  .light .nav-link {
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    margin: 0.25rem 0;
+  }
+  
+  .light .nav-link:hover {
+    background: rgba(13, 139, 125, 0.08) !important;
+    transform: translateX(4px) !important;
+  }
+}
+
+/* Enhanced Navigation Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .light .nav-link::before {
+    display: none;
+  }
+  
+  .light .nav-link:hover {
+    transform: none !important;
+  }
+  
+  .slideDown {
+    animation: none !important;
+  }
+}
+
+/* Enhanced High Contrast Navigation */
+@media (prefers-contrast: high) {
+  .light .navbar {
+    background: #ffffff !important;
+    border-bottom: 2px solid #000000 !important;
+  }
+  
+  .light .nav-link {
+    color: #000000 !important;
+  }
+  
+  .light .nav-link:hover {
+    background: #000000 !important;
+    color: #ffffff !important;
+  }
+}
+
+/* Enhanced Navigation Loading States */
+.navbar-loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.navbar-loading * {
+  transition: none !important;
+}
+
+/* Enhanced Navigation Brand Animation */
+.light .gradient-name:hover {
+  animation-duration: 2s !important;
+}
+
+/* Enhanced Navigation Border Effects */
+.light .navbar::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--accent-color), transparent);
+  opacity: 0.3;
+}
+
+/* Enhanced Navigation Menu Backdrop */
+.light .navbar .warm-card::backdrop {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 252, 248, 0.1);
+}
+
+/* Enhanced Navigation Performance */
+.navbar {
+  will-change: background-color, box-shadow;
+  contain: layout style paint;
+}
+
+.nav-link {
+  will-change: color, background-color, transform;
+}/* Enhanc
+ed Theme Transition System */
+:root {
+  --theme-transition-duration: 300ms;
+  --theme-transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Global theme transition */
+.theme-transitioning * {
+  transition: 
+    background-color var(--theme-transition-duration) var(--theme-transition-easing),
+    color var(--theme-transition-duration) var(--theme-transition-easing),
+    border-color var(--theme-transition-duration) var(--theme-transition-easing),
+    box-shadow var(--theme-transition-duration) var(--theme-transition-easing),
+    opacity var(--theme-transition-duration) var(--theme-transition-easing) !important;
+}
+
+/* Smooth theme transitions for specific elements */
+.theme-transition {
+  transition: 
+    background-color var(--theme-transition-duration) var(--theme-transition-easing),
+    color var(--theme-transition-duration) var(--theme-transition-easing),
+    border-color var(--theme-transition-duration) var(--theme-transition-easing),
+    box-shadow var(--theme-transition-duration) var(--theme-transition-easing),
+    transform var(--theme-transition-duration) var(--theme-transition-easing) !important;
+}
+
+/* Enhanced transition for theme-sensitive elements */
+.theme-transition-enhanced {
+  transition: 
+    all var(--theme-transition-duration) var(--theme-transition-easing) !important;
+}
+
+/* Prevent transition on initial load */
+.preload * {
+  transition: none !important;
+}
+
+/* Theme transition for pseudo-elements */
+.theme-transition::before,
+.theme-transition::after {
+  transition: 
+    background-color var(--theme-transition-duration) var(--theme-transition-easing),
+    color var(--theme-transition-duration) var(--theme-transition-easing),
+    border-color var(--theme-transition-duration) var(--theme-transition-easing),
+    opacity var(--theme-transition-duration) var(--theme-transition-easing) !important;
+}
+
+/* Smooth gradient transitions */
+.gradient-transition {
+  transition: background var(--theme-transition-duration) var(--theme-transition-easing) !important;
+}
+
+/* Enhanced shadow transitions */
+.shadow-transition {
+  transition: box-shadow var(--theme-transition-duration) var(--theme-transition-easing) !important;
+}
+
+/* Theme-aware backdrop filter transitions */
+.backdrop-transition {
+  transition: 
+    backdrop-filter var(--theme-transition-duration) var(--theme-transition-easing),
+    background-color var(--theme-transition-duration) var(--theme-transition-easing) !important;
+}
+
+/* Smooth text color transitions */
+.text-transition {
+  transition: color var(--theme-transition-duration) var(--theme-transition-easing) !important;
+}
+
+/* Enhanced border transitions */
+.border-transition {
+  transition: 
+    border-color var(--theme-transition-duration) var(--theme-transition-easing),
+    border-width var(--theme-transition-duration) var(--theme-transition-easing) !important;
+}
+
+/* Theme transition for SVG elements */
+svg {
+  transition: 
+    fill var(--theme-transition-duration) var(--theme-transition-easing),
+    stroke var(--theme-transition-duration) var(--theme-transition-easing) !important;
+}
+
+/* Smooth transitions for images and media */
+img, video {
+  transition: 
+    opacity var(--theme-transition-duration) var(--theme-transition-easing),
+    filter var(--theme-transition-duration) var(--theme-transition-easing) !important;
+}
+
+/* Enhanced transition for interactive elements */
+button, input, select, textarea, a {
+  transition: 
+    background-color var(--theme-transition-duration) var(--theme-transition-easing),
+    color var(--theme-transition-duration) var(--theme-transition-easing),
+    border-color var(--theme-transition-duration) var(--theme-transition-easing),
+    box-shadow var(--theme-transition-duration) var(--theme-transition-easing) !important;
+}
+
+/* Prevent layout shift during transitions */
+.theme-transitioning {
+  contain: layout style paint;
+}
+
+/* Optimized transitions for performance */
+.theme-transition-optimized {
+  will-change: background-color, color, border-color, box-shadow;
+  transition: 
+    background-color var(--theme-transition-duration) var(--theme-transition-easing),
+    color var(--theme-transition-duration) var(--theme-transition-easing),
+    border-color var(--theme-transition-duration) var(--theme-transition-easing),
+    box-shadow var(--theme-transition-duration) var(--theme-transition-easing) !important;
+}
+
+/* Reset will-change after transition */
+.theme-transition-optimized:not(.theme-transitioning) {
+  will-change: auto;
+}
+
+/* Smooth theme transitions for custom properties */
+:root {
+  transition: 
+    --bg-primary var(--theme-transition-duration) var(--theme-transition-easing),
+    --bg-secondary var(--theme-transition-duration) var(--theme-transition-easing),
+    --text-primary var(--theme-transition-duration) var(--theme-transition-easing),
+    --text-secondary var(--theme-transition-duration) var(--theme-transition-easing),
+    --accent-color var(--theme-transition-duration) var(--theme-transition-easing);
+}
+
+/* Enhanced transitions for specific components */
+.navbar, .footer, .sidebar {
+  transition: 
+    background-color var(--theme-transition-duration) var(--theme-transition-easing),
+    backdrop-filter var(--theme-transition-duration) var(--theme-transition-easing),
+    border-color var(--theme-transition-duration) var(--theme-transition-easing) !important;
+}
+
+/* Smooth transitions for cards and containers */
+.card, .container, .wrapper {
+  transition: 
+    background-color var(--theme-transition-duration) var(--theme-transition-easing),
+    box-shadow var(--theme-transition-duration) var(--theme-transition-easing),
+    border-color var(--theme-transition-duration) var(--theme-transition-easing) !important;
+}
+
+/* Enhanced transitions for loading states */
+.skeleton, .loading {
+  transition: 
+    background-color var(--theme-transition-duration) var(--theme-transition-easing),
+    opacity var(--theme-transition-duration) var(--theme-transition-easing) !important;
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --theme-transition-duration: 0ms;
+  }
+  
+  .theme-transitioning *,
+  .theme-transition,
+  .theme-transition-enhanced {
+    transition: none !important;
+  }
+}
+
+/* High performance mode for slower devices */
+@media (max-width: 768px) and (max-resolution: 150dpi) {
+  :root {
+    --theme-transition-duration: 200ms;
+  }
+}
+
+/* Enhanced performance for high-end devices */
+@media (min-width: 1920px) and (min-resolution: 200dpi) {
+  :root {
+    --theme-transition-duration: 400ms;
+  }
+}/* Enhanced
+ Navigation and Header Styling */
+
+/* Navbar Enhancements */
+.light .navbar {
+  background: var(--card-bg-hover) !important;
+  backdrop-filter: blur(20px) !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  box-shadow: 0 2px 20px var(--shadow-light) !important;
+}
+
+.light .navbar .warm-text-primary {
+  color: var(--text-primary) !important;
+}
+
+.light .navbar .warm-text-secondary {
+  color: var(--text-secondary) !important;
+}
+
+.light .navbar .warm-text-secondary:hover {
+  color: var(--accent-color) !important;
+}
+
+/* Enhanced Navigation Links */
+.light .nav-link {
+  color: var(--text-secondary) !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.light .nav-link:hover {
+  color: var(--accent-color) !important;
+  background: rgba(13, 139, 125, 0.05) !important;
+  transform: translateY(-1px) !important;
+}
+
+.light .nav-link.active {
+  color: var(--accent-color) !important;
+}
+
+/* Mobile Menu Enhancements */
+.light .warm-card.bg-white\/98 {
+  background: var(--card-bg-hover) !important;
+  backdrop-filter: blur(25px) !important;
+  border-bottom: 1px solid var(--border-color) !important;
+  box-shadow: 0 8px 32px var(--shadow-medium) !important;
+}
+
+/* Banner/Header Text Enhancements */
+.light .warm-text-primary {
+  color: var(--text-primary) !important;
+  text-shadow: 0 1px 2px rgba(45, 40, 37, 0.1) !important;
+}
+
+.light .warm-text-secondary {
+  color: var(--text-secondary) !important;
+}
+
+/* Enhanced Gradient Text */
+.light .gradient-name {
+  background: linear-gradient(135deg, var(--accent-color), #0d9488, #0891b2, #2563eb) !important;
+  background-size: 300% 300% !important;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  animation: gradient-shift 4s ease infinite !important;
+}
+
+/* Enhanced Button Styling for Banner */
+.light .btn-warm-primary {
+  background: linear-gradient(135deg, var(--accent-color), #0d9488) !important;
+  box-shadow: 0 4px 15px rgba(13, 139, 125, 0.25) !important;
+  border: none !important;
+}
+
+.light .btn-warm-primary:hover {
+  box-shadow: 0 8px 25px rgba(13, 139, 125, 0.35) !important;
+  transform: translateY(-2px) !important;
+}
+
+.light .btn-warm-secondary {
+  background: var(--card-bg) !important;
+  border-color: var(--accent-color) !important;
+  color: var(--accent-color) !important;
+  backdrop-filter: blur(10px) !important;
+}
+
+.light .btn-warm-secondary:hover {
+  background: var(--accent-color) !important;
+  color: white !important;
+  box-shadow: 0 8px 25px rgba(13, 139, 125, 0.3) !important;
+}
+
+/* Enhanced Social Icons in Banner */
+.light .social-icon-enhanced {
+  background: var(--card-bg) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-secondary) !important;
+  box-shadow: 0 2px 8px var(--shadow-light) !important;
+}
+
+.light .social-icon-enhanced:hover {
+  background: var(--card-bg-hover) !important;
+  box-shadow: 0 8px 25px var(--shadow-medium) !important;
+  border-color: var(--accent-color) !important;
+}
+
+/* Enhanced Tooltips */
+.light .bg-gray-900 {
+  background: var(--text-primary) !important;
+  color: white !important;
+  border-color: var(--border-color) !important;
+}
+
+/* Navigation Active State Indicator */
+.light .nav-link span {
+  background: linear-gradient(to right, var(--accent-color), #0d9488) !important;
+}
+
+/* Enhanced Mobile Menu Button */
+.light .warm-text-secondary.hover\:text-designColor:hover {
+  color: var(--accent-color) !important;
+  background: rgba(13, 139, 125, 0.05) !important;
+}
+
+/* Header Background Decorations */
+.light .bg-designColor\/10 {
+  background: rgba(13, 139, 125, 0.08) !important;
+}
+
+.light .bg-blue-500\/10 {
+  background: rgba(59, 130, 246, 0.08) !important;
+}
+
+/* Enhanced Typography */
+.light .font-bold {
+  font-weight: 700 !important;
+  letter-spacing: -0.025em !important;
+}
+
+.light .font-extrabold {
+  font-weight: 800 !important;
+  letter-spacing: -0.05em !important;
+}
+
+/* Better Text Shadows for Light Mode */
+.light .text-shadow-warm {
+  text-shadow: 0 1px 3px rgba(45, 40, 37, 0.1) !important;
+}
+
+/* Enhanced Focus States for Navigation */
+.light .nav-link:focus {
+  outline: 2px solid var(--accent-color) !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 3px rgba(13, 139, 125, 0.1) !important;
+}
+
+/* Smooth Navbar Scroll Effects */
+.light .navbar.scrolled {
+  background: var(--card-bg-hover) !important;
+  backdrop-filter: blur(25px) !important;
+  box-shadow: 0 4px 25px var(--shadow-medium) !important;
+}
+
+/* Enhanced Mobile Menu Animation */
+.light .mobile-menu-enter {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.light .mobile-menu-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Better Contrast for Accessibility */
+@media (prefers-contrast: high) {
+  .light .warm-text-primary {
+    color: #000 !important;
+    text-shadow: none !important;
+  }
+  
+  .light .warm-text-secondary {
+    color: #333 !important;
+  }
+  
+  .light .nav-link {
+    color: #000 !important;
+  }
+  
+  .light .nav-link:hover {
+    background: #f0f0f0 !important;
+  }
+}
+
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  .light .navbar {
+    backdrop-filter: blur(15px) !important;
+    box-shadow: 0 2px 15px var(--shadow-light) !important;
+  }
+  
+  .light .btn-warm-primary,
+  .light .btn-warm-secondary {
+    padding: 0.75rem 1.25rem !important;
+    font-size: 0.875rem !important;
+  }
+  
+  .light .social-icon-enhanced {
+    width: 2.5rem !important;
+    height: 2.5rem !important;
+  }
+  
+  .light .warm-hover:hover {
+    transform: translateY(-1px) !important;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .light .navbar,
+  .light .social-icon-enhanced,
+  .light .btn-warm-primary,
+  .light .btn-warm-secondary {
+    background: white !important;
+    color: black !important;
+    box-shadow: none !important;
+    border: 1px solid #ccc !important;
+  }
 }

@@ -60,7 +60,7 @@ const ProgressIndicator = () => {
         </svg>
         
         <motion.button
-          className="absolute inset-0 flex items-center justify-center text-xs font-bold text-designColor bg-gray-900/80 backdrop-blur-sm rounded-full border border-designColor/30 hover:bg-designColor hover:text-white transition-all duration-300"
+          className="absolute inset-0 flex items-center justify-center text-xs font-bold text-designColor bg-gray-900/80 backdrop-blur-sm rounded-full border border-designColor/30 hover:bg-designColor hover:text-white transition-all duration-300 warm-hover theme-transition"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}

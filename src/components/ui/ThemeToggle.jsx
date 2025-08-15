@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FaSun, FaMoon } from 'react-icons/fa';
-import { useTheme } from '../../contexts/ThemeContext';
+import { useTheme } from '../../hooks/useTheme';
 
 const ThemeToggle = () => {
   const { isDark, toggleTheme } = useTheme();
@@ -9,7 +9,7 @@ const ThemeToggle = () => {
   return (
     <motion.button
       onClick={toggleTheme}
-      className="fixed top-24 right-4 z-[9999] w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gradient-to-r from-designColor to-teal-600 shadow-2xl flex items-center justify-center text-white hover:shadow-xl transition-all duration-300 border-2 border-white/20 backdrop-blur-sm"
+      className="fixed top-24 right-4 z-[9999] w-12 h-12 sm:w-14 sm:h-14 rounded-full btn-warm-primary bg-gradient-to-r from-designColor to-teal-600 shadow-2xl flex items-center justify-center text-white hover:shadow-xl transition-all duration-300 border-2 border-white/20 backdrop-blur-sm warm-hover theme-transition"
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.9 }}
       initial={{ opacity: 0, y: -20 }}

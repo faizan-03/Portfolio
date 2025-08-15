@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { FaEye, FaUsers, FaGlobe } from 'react-icons/fa';
 
-// To use real analytics, uncomment and configure:
-// import { getRealTimeData } from '../../utils/analytics';
+// Import real analytics functions
+import { getRealTimeData } from '../../utils/analytics';
 
 const VisitorCounter = () => {
   const [stats, setStats] = useState({
@@ -11,50 +11,86 @@ const VisitorCounter = () => {
     views: 0,
     countries: 0
   });
+  const [isUsingMock, setIsUsingMock] = useState(true);
 
   useEffect(() => {
-    const updateStats = () => {
-      // Using realistic base numbers for your portfolio
-      const baseVisitors = 2847;
-      const baseViews = 5234;
-      const baseCountries = 34;
-      
-      // Get today's date to create daily increments
-      const today = new Date().toDateString();
-      const lastUpdate = localStorage.getItem('analytics_date');
-      
-      if (lastUpdate !== today) {
-        // New day, reset increments
-        localStorage.setItem('analytics_date', today);
-        localStorage.setItem('daily_visitors', '0');
-        localStorage.setItem('daily_views', '0');
-        localStorage.setItem('daily_countries', '0');
+    // Try to get real Google Analytics data first
+    const fetchRealAnalytics = async () => {
+      try {
+        const data = await getRealTimeData();
+        if (data && data.visitors) {
+          setStats(data);
+          setIsUsingMock(false);
+          return true;
+        }
+        return false;
+      } catch (error) {
+        console.warn("Failed to fetch real analytics data:", error);
+        return false;
       }
-      
-      const dailyVisitors = parseInt(localStorage.getItem('daily_visitors') || '0');
-      const dailyViews = parseInt(localStorage.getItem('daily_views') || '0');
-      const dailyCountries = parseInt(localStorage.getItem('daily_countries') || '0');
-      
-      // Small realistic increments
-      const newDailyVisitors = dailyVisitors + Math.floor(Math.random() * 2);
-      const newDailyViews = dailyViews + Math.floor(Math.random() * 4);
-      const newDailyCountries = dailyCountries + (Math.random() > 0.9 ? 1 : 0);
-      
-      localStorage.setItem('daily_visitors', newDailyVisitors.toString());
-      localStorage.setItem('daily_views', newDailyViews.toString());
-      localStorage.setItem('daily_countries', newDailyCountries.toString());
-      
-      setStats({
-        visitors: baseVisitors + newDailyVisitors,
-        views: baseViews + newDailyViews,
-        countries: Math.min(baseCountries + newDailyCountries, 50) // Cap at 50 countries
-      });
+    };
+    
+    const updateStats = () => {
+      // Only use mock data if real data couldn't be fetched
+      if (isUsingMock) {
+        // Using realistic base numbers for your portfolio
+        const baseVisitors = 2847;
+        const baseViews = 5234;
+        const baseCountries = 34;
+        
+        // Get today's date to create daily increments
+        const today = new Date().toDateString();
+        const lastUpdate = localStorage.getItem('analytics_date');
+        
+        if (lastUpdate !== today) {
+          // New day, reset increments
+          localStorage.setItem('analytics_date', today);
+          localStorage.setItem('daily_visitors', '0');
+          localStorage.setItem('daily_views', '0');
+          localStorage.setItem('daily_countries', '0');
+        }
+        
+        const dailyVisitors = parseInt(localStorage.getItem('daily_visitors') || '0');
+        const dailyViews = parseInt(localStorage.getItem('daily_views') || '0');
+        const dailyCountries = parseInt(localStorage.getItem('daily_countries') || '0');
+        
+        // Small realistic increments
+        const newDailyVisitors = dailyVisitors + Math.floor(Math.random() * 2);
+        const newDailyViews = dailyViews + Math.floor(Math.random() * 4);
+        const newDailyCountries = dailyCountries + (Math.random() > 0.9 ? 1 : 0);
+        
+        localStorage.setItem('daily_visitors', newDailyVisitors.toString());
+        localStorage.setItem('daily_views', newDailyViews.toString());
+        localStorage.setItem('daily_countries', newDailyCountries.toString());
+        
+        setStats({
+          visitors: baseVisitors + newDailyVisitors,
+          views: baseViews + newDailyViews,
+          countries: Math.min(baseCountries + newDailyCountries, 50) // Cap at 50 countries
+        });
+      }
     };
 
-    updateStats();
-    const interval = setInterval(updateStats, 60000); // Update every minute
+    const initializeCounter = async () => {
+      const gotRealData = await fetchRealAnalytics();
+      if (!gotRealData) {
+        updateStats();
+      }
+    };
+
+    initializeCounter();
+    
+    // Set up interval for updates - every minute for mock data, every 2 minutes for real data
+    const interval = setInterval(() => {
+      if (isUsingMock) {
+        updateStats();
+      } else {
+        fetchRealAnalytics();
+      }
+    }, isUsingMock ? 60000 : 120000);
+    
     return () => clearInterval(interval);
-  }, []);
+  }, [isUsingMock]); // Add isUsingMock as a dependency
 
   const StatItem = ({ icon: Icon, label, value, delay }) => (
     <motion.div
@@ -87,7 +123,9 @@ const VisitorCounter = () => {
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.8, delay: 0.5 }}
       className="fixed left-2 bottom-2 z-30 flex flex-col gap-2 max-w-[140px] hidden sm:flex"
-      title="Demo Analytics - Replace with real data"
+      title={isUsingMock ? 
+        "Using simulated analytics data - See ANALYTICS_SETUP.md for instructions to implement real data" : 
+        "Analytics data from Google Analytics simulation"}
     >
       <StatItem icon={FaEye} label="Views" value={stats.views} delay={0.1} />
       <StatItem icon={FaUsers} label="Visitors" value={stats.visitors} delay={0.2} />

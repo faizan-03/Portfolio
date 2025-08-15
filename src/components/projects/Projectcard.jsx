@@ -1,12 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { BsGithub } from "react-icons/bs";
 import { FaGlobe, FaMobile, FaRobot, FaCode, FaShoppingCart, FaGraduationCap, FaMusic } from "react-icons/fa";
 import { SiReact, SiFlutter, SiPython, SiDotnet, SiTailwindcss, SiJavascript } from "react-icons/si";
 import { motion } from "framer-motion";
+import { useTheme } from '../../hooks/useTheme';
 
 const Projectcard = ({ title, des, src, technologies, category, githubLink, liveLink, date }) => {
-  // Placeholder image for projects without images
-  const placeholderImage = "data:image/svg+xml,%3Csvg width='400' height='240' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='%23212428'/%3E%3Ctext x='50%25' y='50%25' font-size='18' fill='%23028b7d' text-anchor='middle' dy='.3em'%3EProject Image%3C/text%3E%3C/svg%3E";
+  const { isDark } = useTheme();
+  
+  // Generate placeholder image based on theme
+  const [placeholderImage, setPlaceholderImage] = useState('');
+  
+  useEffect(() => {
+    setPlaceholderImage(`data:image/svg+xml,%3Csvg width='400' height='240' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100%25' height='100%25' fill='${isDark ? '%23212428' : '%23f5f5f7'}'/%3E%3Ctext x='50%25' y='50%25' font-size='18' fill='%23028b7d' text-anchor='middle' dy='.3em'%3EProject Image%3C/text%3E%3C/svg%3E`);
+  }, [isDark]);
   
   // Get category icon
   const getCategoryIcon = (category) => {
@@ -42,9 +49,9 @@ const Projectcard = ({ title, des, src, technologies, category, githubLink, live
   };
   return (
     <motion.div 
-      whileHover={{ y: -10, scale: 1.02 }}
+      whileHover={{ y: -10, scale: 1.02, boxShadow: "0 16px 30px rgba(45, 40, 37, 0.12)" }}
       transition={{ type: "spring", stiffness: 300 }}
-      className="w-full p-6 h-auto rounded-xl shadow-shadowOne flex flex-col bg-gradient-to-br from-bodyColor via-[#1a1d21] to-[#202327] group relative overflow-hidden border border-gray-800/50 hover:border-designColor/30"
+      className="w-full p-6 h-auto rounded-xl shadow-lg flex flex-col bg-white/95 dark:bg-gradient-to-br dark:from-bodyColor dark:via-[#1a1d21] dark:to-[#202327] group relative overflow-hidden border border-gray-200/40 dark:border-gray-800/50 hover:border-designColor/30 backdrop-blur-md"
     >
       {/* Animated overlay */}
       <motion.div 
@@ -82,7 +89,7 @@ const Projectcard = ({ title, des, src, technologies, category, githubLink, live
         
         {/* Overlay on hover */}
         <motion.div 
-          className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end justify-center pb-4"
+          className="absolute inset-0 bg-gradient-to-t from-[#2c2825]/80 dark:from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-end justify-center pb-4"
           initial={{ opacity: 0 }}
           whileHover={{ opacity: 1 }}
         >
@@ -97,8 +104,8 @@ const Projectcard = ({ title, des, src, technologies, category, githubLink, live
                 href={githubLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ y: -4, scale: 1.1 }}
-                className="text-lg w-10 h-10 rounded-full bg-black inline-flex justify-center items-center text-gray-400 hover:text-designColor duration-300 cursor-pointer"
+                whileHover={{ y: -4, scale: 1.1, boxShadow: "0 8px 16px rgba(45, 40, 37, 0.15)" }}
+                className="text-lg w-10 h-10 rounded-full social-icon-warm social-icon-github bg-[#4a4540] dark:bg-black inline-flex justify-center items-center text-white hover:text-designColor duration-300 cursor-pointer warm-hover theme-transition backdrop-blur-md"
               >
                 <BsGithub />
               </motion.a>
@@ -108,8 +115,8 @@ const Projectcard = ({ title, des, src, technologies, category, githubLink, live
                 href={liveLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                whileHover={{ y: -4, scale: 1.1 }}
-                className="text-lg w-10 h-10 rounded-full bg-black inline-flex justify-center items-center text-gray-400 hover:text-designColor duration-300 cursor-pointer"
+                whileHover={{ y: -4, scale: 1.1, boxShadow: "0 8px 16px rgba(45, 40, 37, 0.15)" }}
+                className="text-lg w-10 h-10 rounded-full bg-[#4a4540] dark:bg-black inline-flex justify-center items-center text-white hover:text-designColor duration-300 cursor-pointer backdrop-blur-md"
               >
                 <FaGlobe />
               </motion.a>
@@ -118,13 +125,13 @@ const Projectcard = ({ title, des, src, technologies, category, githubLink, live
               <motion.div className="flex gap-2">
                 <motion.span 
                   whileHover={{ y: -4, scale: 1.1 }}
-                  className="text-lg w-10 h-10 rounded-full bg-black inline-flex justify-center items-center text-gray-400 hover:text-designColor duration-300 cursor-pointer opacity-50"
+                  className="text-lg w-10 h-10 rounded-full social-icon-warm social-icon-github bg-[#4a4540] dark:bg-black inline-flex justify-center items-center text-white hover:text-designColor duration-300 cursor-pointer opacity-50 theme-transition"
                 >
                   <BsGithub />
                 </motion.span>
                 <motion.span 
                   whileHover={{ y: -4, scale: 1.1 }}
-                  className="text-lg w-10 h-10 rounded-full bg-black inline-flex justify-center items-center text-gray-400 hover:text-designColor duration-300 cursor-pointer opacity-50"
+                  className="text-lg w-10 h-10 rounded-full bg-[#4a4540] dark:bg-black inline-flex justify-center items-center text-white hover:text-designColor duration-300 cursor-pointer opacity-50"
                 >
                   <FaGlobe />
                 </motion.span>
@@ -153,7 +160,7 @@ const Projectcard = ({ title, des, src, technologies, category, githubLink, live
               <motion.h3 
                 whileHover={{ color: "#028b7d", x: 3 }}
                 transition={{ duration: 0.3 }}
-                className="text-lg font-semibold text-white leading-tight"
+                className="text-lg font-semibold text-[#2c2825] dark:text-white leading-tight"
               >
                 {title}
               </motion.h3>
@@ -167,8 +174,8 @@ const Projectcard = ({ title, des, src, technologies, category, githubLink, live
           </div>
           
           <motion.p 
-            whileHover={{ color: "#fff" }}
-            className="text-sm leading-relaxed text-gray-300 duration-300 mb-4"
+            whileHover={{ color: "#2c2825", dark: { color: "#fff" } }}
+            className="text-sm leading-relaxed text-[#5a5550] dark:text-gray-300 duration-300 mb-4"
           >
             {des}
           </motion.p>
@@ -184,8 +191,8 @@ const Projectcard = ({ title, des, src, technologies, category, githubLink, live
               {technologies.slice(0, 4).map((tech, index) => (
                 <motion.div
                   key={index}
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  className="flex items-center gap-1 text-xs px-3 py-1.5 rounded-full bg-gradient-to-r from-gray-700 to-gray-600 text-gray-200 hover:from-designColor hover:to-teal-600 hover:text-white transition-all duration-300 shadow-sm"
+                  whileHover={{ scale: 1.05, y: -2, boxShadow: "0 8px 16px rgba(45, 40, 37, 0.1)" }}
+                  className="flex items-center gap-1 text-xs px-3 py-1.5 rounded-full bg-gradient-to-r from-gray-100 to-gray-50 dark:from-gray-700 dark:to-gray-600 text-[#2c2825] dark:text-gray-200 hover:from-designColor hover:to-teal-600 hover:text-white transition-all duration-300 shadow-sm backdrop-blur-md"
                 >
                   {getTechIcon(tech)}
                   <span>{tech}</span>
@@ -193,8 +200,8 @@ const Projectcard = ({ title, des, src, technologies, category, githubLink, live
               ))}
               {technologies.length > 4 && (
                 <motion.div 
-                  whileHover={{ scale: 1.05 }}
-                  className="text-xs px-3 py-1.5 rounded-full bg-gray-700/50 text-gray-400 border border-gray-600"
+                  whileHover={{ scale: 1.05, boxShadow: "0 8px 16px rgba(45, 40, 37, 0.1)" }}
+                  className="text-xs px-3 py-1.5 rounded-full bg-gray-100/80 dark:bg-gray-700/50 text-[#5a5550] dark:text-gray-400 border border-gray-200/30 dark:border-gray-600 backdrop-blur-md"
                 >
                   +{technologies.length - 4} more
                 </motion.div>
@@ -205,7 +212,7 @@ const Projectcard = ({ title, des, src, technologies, category, githubLink, live
         
         {/* Action buttons */}
         <motion.div 
-          className="flex gap-3 pt-4 border-t border-gray-700/50"
+          className="flex gap-3 pt-4 border-t border-gray-200/40 dark:border-gray-700/50"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
@@ -215,15 +222,15 @@ const Projectcard = ({ title, des, src, technologies, category, githubLink, live
               href={githubLink}
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.05, backgroundColor: "#333" }}
+              whileHover={{ scale: 1.05, backgroundColor: "#454241", dark: { backgroundColor: "#333" }, boxShadow: "0 8px 20px rgba(45, 40, 37, 0.15)" }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-800 text-gray-300 hover:text-white transition-all duration-300 text-sm"
+              className="flex items-center gap-2 px-4 py-2 rounded-lg btn-warm-secondary social-icon-github bg-gray-100 dark:bg-gray-800 text-[#2c2825] dark:text-gray-300 hover:text-white transition-all duration-300 text-sm warm-hover theme-transition backdrop-blur-md"
             >
               <BsGithub />
               <span>Code</span>
             </motion.a>
           ) : (
-            <motion.div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-800/50 text-gray-500 text-sm cursor-not-allowed">
+            <motion.div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-100/50 dark:bg-gray-800/50 text-[#5a5550]/70 dark:text-gray-500 text-sm cursor-not-allowed theme-transition backdrop-blur-sm">
               <BsGithub />
               <span>Code</span>
             </motion.div>
@@ -234,15 +241,15 @@ const Projectcard = ({ title, des, src, technologies, category, githubLink, live
               href={liveLink}
               target="_blank"
               rel="noopener noreferrer"
-              whileHover={{ scale: 1.05, backgroundColor: "#028b7d" }}
+              whileHover={{ scale: 1.05, backgroundColor: "#028b7d", boxShadow: "0 8px 20px rgba(2, 139, 125, 0.2)" }}
               whileTap={{ scale: 0.95 }}
-              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-designColor/20 text-designColor hover:bg-designColor hover:text-white transition-all duration-300 text-sm"
+              className="flex items-center gap-2 px-4 py-2 rounded-lg bg-designColor/10 dark:bg-designColor/20 text-designColor hover:bg-designColor hover:text-white transition-all duration-300 text-sm backdrop-blur-md"
             >
               <FaGlobe />
               <span>Live Demo</span>
             </motion.a>
           ) : (
-            <motion.div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-800/50 text-gray-500 text-sm cursor-not-allowed">
+            <motion.div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-gray-100/50 dark:bg-gray-800/50 text-[#5a5550]/70 dark:text-gray-500 text-sm cursor-not-allowed backdrop-blur-sm">
               <FaGlobe />
               <span>Live Demo</span>
             </motion.div>
