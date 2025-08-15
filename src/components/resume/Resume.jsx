@@ -32,7 +32,7 @@ const Resume = () => {
         transition={{ duration: 0.5, delay: 0.2 }}
         className="flex justify-center items-center text-center"
       >
-        <Title title="7+ YEARS OF EXPERIENCE" des="My Resume" />
+        <Title title="PASSIONATE DEVELOPER & LEARNER" des="My Resume" />
       </motion.div>
       <motion.div
         initial={{ opacity: 0 }}

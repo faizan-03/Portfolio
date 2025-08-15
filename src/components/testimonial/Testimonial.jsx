@@ -8,28 +8,32 @@ import { quote } from "../../assets";
 import { motion } from "framer-motion";
 import testimonialData from "../../Data/testimonialData";
 
-// Arrow components for the slider
+// Modern Arrow components for the slider
 function SampleNextArrow(props) {
   const { onClick } = props;
   return (
-    <div
-      className="w-14 h-12 bg-[#0c1821] hover:bg-black duration-300 rounded-md text-2xl text-gray-400 flex justify-center items-center absolute top-0 right-0 shadow-shadowOne cursor-pointer z-10"
+    <motion.div
+      whileHover={{ scale: 1.1, backgroundColor: "#028b7d" }}
+      whileTap={{ scale: 0.9 }}
+      className="w-12 h-12 bg-gradient-to-r from-gray-800 to-gray-700 hover:from-designColor hover:to-teal-600 duration-300 rounded-full text-xl text-gray-300 hover:text-white flex justify-center items-center absolute top-0 right-0 shadow-lg cursor-pointer z-10 border border-gray-600 hover:border-designColor"
       onClick={onClick}
     >
       <HiArrowRight />
-    </div>
+    </motion.div>
   );
 }
 
 function SamplePrevArrow(props) {
   const { onClick } = props;
   return (
-    <div
-      className="w-14 h-12 bg-[#0c1821] hover:bg-black duration-300 rounded-md text-2xl text-gray-400 flex justify-center items-center absolute top-0 right-20 shadow-shadowOne cursor-pointer z-10"
+    <motion.div
+      whileHover={{ scale: 1.1, backgroundColor: "#028b7d" }}
+      whileTap={{ scale: 0.9 }}
+      className="w-12 h-12 bg-gradient-to-r from-gray-800 to-gray-700 hover:from-designColor hover:to-teal-600 duration-300 rounded-full text-xl text-gray-300 hover:text-white flex justify-center items-center absolute top-0 right-16 shadow-lg cursor-pointer z-10 border border-gray-600 hover:border-designColor"
       onClick={onClick}
     >
       <HiArrowLeft />
-    </div>
+    </motion.div>
   );
 }
 
@@ -68,27 +72,15 @@ const Testimonial = () => {
       </div>
     ),
     customPaging: (i) => (
-      <div
-        style={
-          i === dotActive
-            ? {
-                width: "12px",
-                height: "12px",
-                color: "blue",
-                background: "#028b7d",
-                borderRadius: "50%",
-                cursor: "pointer",
-              }
-            : {
-                width: "12px",
-                height: "12px",
-                color: "blue",
-                background: "gray",
-                borderRadius: "50%",
-                cursor: "pointer",
-              }
-        }
-      ></div>
+      <motion.div
+        whileHover={{ scale: 1.2 }}
+        whileTap={{ scale: 0.9 }}
+        className={`w-3 h-3 rounded-full cursor-pointer transition-all duration-300 ${
+          i === dotActive 
+            ? "bg-designColor shadow-lg shadow-designColor/50" 
+            : "bg-gray-500 hover:bg-gray-400"
+        }`}
+      />
     ),
   };
 
@@ -98,7 +90,7 @@ const Testimonial = () => {
       className="w-full py-20 border-b-[1px] border-b-black"
     >
       <div className="flex justify-center items-center text-center">
-        <Title title="WHAT CLIENTS SAY" des="Testimonials" />
+        <Title title="WHAT PEOPLE SAY" des="Testimonials" />
       </div>
       <div className="max-w-6xl mx-auto px-4">
         <Slider {...settings}>
@@ -110,37 +102,45 @@ const Testimonial = () => {
                   initial={{ opacity: 0, x: -50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5 }}
-                  className="w-full lgl:w-[30%] h-full bg-gradient-to-r from-[#1e2024] to-[#23272b] p-8 rounded-lg shadow-shadowOne flex flex-col gap-8 justify-center items-center"
+                  className="w-full lgl:w-[35%] h-full bg-gradient-to-br from-[#1e2024] via-[#1a1d21] to-[#23272b] p-8 rounded-xl shadow-shadowOne flex flex-col gap-6 justify-center items-center border border-gray-800/50 hover:border-designColor/30 transition-all duration-300"
                 >
                   <div className="w-full flex flex-col items-center">
-                    {/* Avatar with pentagon shape */}
-                    <div className="w-32 h-32 mx-auto mb-4 overflow-hidden relative">
-                      <div 
-                        className="w-full h-full absolute"
-                        style={{
-                          clipPath: "polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%)",
-                          backgroundColor: "#1e2024",
-                          padding: "4px"
-                        }}
-                      >
+                    {/* Modern circular avatar with glow effect */}
+                    <motion.div 
+                      whileHover={{ scale: 1.05 }}
+                      className="w-28 h-28 mx-auto mb-4 relative group"
+                    >
+                      <div className="w-full h-full rounded-full overflow-hidden border-4 border-designColor/30 group-hover:border-designColor/60 transition-all duration-300 shadow-lg">
                         <img
                           className="w-full h-full object-cover"
-                          style={{
-                            clipPath: "polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%)",
-                          }}
                           src={testimonial.avatar}
                           alt={testimonial.name}
                         />
                       </div>
-                    </div>
+                      {/* Glow effect */}
+                      <div className="absolute inset-0 rounded-full bg-designColor/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 blur-md -z-10"></div>
+                    </motion.div>
                     
-                    <h3 className="text-2xl font-bold text-white mt-2">{testimonial.name}</h3>
-                    <p className="text-base text-gray-400 mt-1">{testimonial.role}</p>
+                    <motion.h3 
+                      whileHover={{ color: "#028b7d" }}
+                      className="text-xl font-bold text-white mt-2 text-center transition-colors duration-300"
+                    >
+                      {testimonial.name}
+                    </motion.h3>
+                    <p className="text-sm text-gray-400 mt-1 text-center">{testimonial.role}</p>
                     
-                    {/* Rating Stars */}
-                    <div className="flex gap-1 mt-4 text-yellow-500">
+                    {/* Rating Stars with animation */}
+                    <div className="flex gap-1 mt-4">
                       {[...Array(testimonial.rating)].map((_, i) => (
-                        <RiStarFill key={i} />
+                        <motion.div
+                          key={i}
+                          initial={{ opacity: 0, scale: 0 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: i * 0.1, duration: 0.3 }}
+                          whileHover={{ scale: 1.2 }}
+                        >
+                          <RiStarFill className="text-yellow-400 text-lg" />
+                        </motion.div>
                       ))}
                     </div>
                   </div>
@@ -151,23 +151,45 @@ const Testimonial = () => {
                   initial={{ opacity: 0, x: 50 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.5, delay: 0.2 }}
-                  className="w-full lgl:w-[70%] h-full flex flex-col justify-between"
+                  className="w-full lgl:w-[65%] h-full flex flex-col justify-between relative"
                 >
-                  <FaQuoteLeft className="text-5xl text-designColor opacity-20" />
-                  <div className="w-full h-full py-10 bg-gradient-to-r from-[#1e2024] to-[#23272b] rounded-lg shadow-shadowOne p-4 lgl:p-8 flex flex-col justify-center gap-4 lgl:gap-8">
-                    <div className="flex flex-col justify-between py-6 border-b-2 border-b-gray-900">
-                      <div>
-                        <h3 className="text-xl lgl:text-2xl font-medium tracking-wide text-designColor">
-                          {testimonial.project}
-                        </h3>
-                        <p className="text-base text-gray-400 mt-3">
-                          via {testimonial.platform} - {testimonial.date}
-                        </p>
+                  {/* Quote icon with animation */}
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: 0.5, duration: 0.5 }}
+                    className="absolute -top-4 -left-2 z-10"
+                  >
+                    <FaQuoteLeft className="text-4xl text-designColor opacity-30" />
+                  </motion.div>
+                  
+                  <div className="w-full h-full py-8 bg-gradient-to-br from-[#1e2024] via-[#1a1d21] to-[#23272b] rounded-xl shadow-shadowOne p-6 lgl:p-8 flex flex-col justify-center gap-6 border border-gray-800/50 hover:border-designColor/30 transition-all duration-300">
+                    {/* Project info header */}
+                    <div className="flex flex-col gap-3 pb-6 border-b border-gray-700/50">
+                      <motion.h3 
+                        whileHover={{ color: "#028b7d" }}
+                        className="text-xl lgl:text-2xl font-semibold tracking-wide text-white transition-colors duration-300"
+                      >
+                        {testimonial.project}
+                      </motion.h3>
+                      <div className="flex flex-wrap items-center gap-2 text-sm">
+                        <span className="px-3 py-1 bg-designColor/20 text-designColor rounded-full">
+                          {testimonial.platform}
+                        </span>
+                        <span className="text-gray-400">•</span>
+                        <span className="text-gray-400">{testimonial.date}</span>
                       </div>
                     </div>
-                    <p className="text-base md:text-lg font-titleFont text-gray-300 font-medium tracking-wide leading-7">
-                      {testimonial.testimonial}
-                    </p>
+                    
+                    {/* Testimonial text */}
+                    <motion.p 
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ delay: 0.7, duration: 0.5 }}
+                      className="text-base md:text-lg font-titleFont text-gray-300 leading-relaxed tracking-wide relative z-10"
+                    >
+                      "{testimonial.testimonial}"
+                    </motion.p>
                   </div>
                 </motion.div>
               </div>

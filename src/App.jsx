@@ -15,7 +15,7 @@ function App() {
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
-    restDelta: 0.001
+    restDelta: 0.001,
   });
 
   // Smooth scroll to hash on page load
@@ -44,7 +44,7 @@ function App() {
       <div className="w-full h-auto bg-bodycolor text-lightText">
         <Navbar />
         <div className="px-6">
-          <motion.div 
+          <motion.div
             className="max-w-screen-2xl mx-auto px-0 sm:px-8 lg:px-16"
             initial={{ y: 20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}

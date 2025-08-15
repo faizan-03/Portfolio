@@ -37,7 +37,7 @@ const Leftbanner = () => {
   const githubUsername = getEnvVariable('REACT_APP_GITHUB_USERNAME', 'faizan-ali786');
   const linkedinId = getEnvVariable('REACT_APP_LINKEDIN_ID', 'rana-faizan-7b4b02252');
   const instagramUsername = getEnvVariable('REACT_APP_INSTAGRAM_USERNAME', 'ranafaizan__03');
-  const cvPath = getEnvVariable('REACT_APP_CV_PATH', '/src/assets/images/Rana Faizan Ali (3).pdf');
+  const cvPath = getEnvVariable('REACT_APP_CV_PATH', '/CV/MyResume.pdf');
   const name = getEnvVariable('REACT_APP_NAME', 'Faizan Ali');
   const description = getEnvVariable('REACT_APP_DESCRIPTION', 'A passionate developer specializing in MERN Stack, .NET Blazor, and exploring the realms of AI & Machine Learning. Currently pursuing BS Computer Science at the University of Gujrat.');
 

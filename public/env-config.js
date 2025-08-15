@@ -5,7 +5,7 @@ window._env_ = {
   REACT_APP_LINKEDIN_ID: "rana-faizan-7b4b02252",
   REACT_APP_INSTAGRAM_USERNAME: "ranafaizan__03",
   REACT_APP_EMAIL: "faizanali@example.com",
-  REACT_APP_CV_PATH: "/src/assets/images/Rana Faizan Ali (3).pdf",
+  REACT_APP_CV_PATH: "/CV/MyResume.pdf",
   REACT_APP_AVATAR_API_URL: "https://randomuser.me/api/portraits",
   REACT_APP_NAME: "Faizan Ali",
   REACT_APP_TITLE: "MERN Developer | .NET Blazor Developer | UI/UX Designer",

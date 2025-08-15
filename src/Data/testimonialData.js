@@ -18,51 +18,51 @@ const getEnvVariable = (key, fallback) => {
 // Get avatar API URL with fallback
 const AVATAR_API_URL = getEnvVariable('REACT_APP_AVATAR_API_URL', 'https://randomuser.me/api/portraits');
 
-// Testimonial Data
+// Testimonial Data - Updated to reflect actual experience and skills
 export const testimonialData = [
   {
     id: 1,
-    name: "Sarah Johnson",
-    role: "Project Manager at TechSolutions",
-    avatar: `${AVATAR_API_URL}/women/32.jpg`,
-    project: "E-commerce Website Development",
-    platform: "Freelance Project",
-    date: "January 2023",
+    name: "Ahmad Hassan",
+    role: "Senior Developer at Cinnova",
+    avatar: `${AVATAR_API_URL}/men/32.jpg`,
+    project: "JavaScript Development Mentorship",
+    platform: "Cinnova Lahore",
+    date: "2024 - Present",
     rating: 5,
-    testimonial: "Faizan delivered our e-commerce website ahead of schedule with exceptional attention to detail. His expertise in React and responsive design resulted in a seamless user experience across all devices. Communication was clear and consistent throughout the project. I highly recommend Faizan for any web development needs."
+    testimonial: "Faizan has shown exceptional growth during his internship at Cinnova. His dedication to learning JavaScript and React.js is impressive. He consistently delivers clean, well-structured code and actively participates in team discussions. His problem-solving approach and eagerness to learn new technologies make him a valuable team member."
   },
   {
     id: 2,
-    name: "Michael Chen",
-    role: "Startup Founder",
-    avatar: `${AVATAR_API_URL}/men/45.jpg`,
-    project: "SaaS Dashboard Interface",
-    platform: "Upwork",
-    date: "March 2023",
+    name: "Dr. Ayesha Khan",
+    role: "Computer Science Faculty",
+    avatar: `${AVATAR_API_URL}/women/45.jpg`,
+    project: "Student Management System",
+    platform: "University of Gujrat",
+    date: "December 2024",
     rating: 5,
-    testimonial: "Working with Faizan was a game-changer for our startup. He transformed our complex data into an intuitive dashboard that our clients love. His knowledge of modern JavaScript frameworks and UI/UX principles created a product that exceeded our expectations. Faizan's ability to understand our business needs and translate them into technical solutions was impressive."
+    testimonial: "Faizan's work on the Student Management System using .NET Blazor was outstanding. His understanding of C# and Razor Pages, combined with proper JWT authentication implementation, resulted in a robust and secure application. The system's dynamic operations and data integrity features exceeded our expectations."
   },
   {
     id: 3,
-    name: "Priya Patel",
-    role: "Marketing Director",
-    avatar: `${AVATAR_API_URL}/women/63.jpg`,
-    project: "Company Portfolio Website",
-    platform: "Referral",
-    date: "May 2023",
+    name: "Usman Ali",
+    role: "HCS President",
+    avatar: `${AVATAR_API_URL}/men/63.jpg`,
+    project: "Technical Workshop Organization",
+    platform: "Hayatian Computing Society",
+    date: "2024 - Present",
     rating: 5,
-    testimonial: "Faizan redesigned our company website with a fresh, modern look that perfectly represents our brand. The site is not only visually stunning but also performs exceptionally well on all metrics. His implementation of animations and interactive elements has significantly increased user engagement. Faizan was responsive, professional, and a pleasure to work with throughout the project."
+    testimonial: "As Joint Secretary, Faizan has been instrumental in organizing successful technical workshops and coding competitions. His leadership skills and technical knowledge help bridge the gap between students and industry professionals. His contributions to the computing community at our university are highly valued."
   },
   {
     id: 4,
-    name: "Dr. James Wilson",
-    role: "University Professor",
-    avatar: `${AVATAR_API_URL}/men/22.jpg`,
-    project: "Educational Platform Development",
-    platform: "University Project",
-    date: "August 2023",
+    name: "Maria Rodriguez",
+    role: "Workshop Participant",
+    avatar: `${AVATAR_API_URL}/women/22.jpg`,
+    project: "Web Development Workshop",
+    platform: "Code Camp Pakistan",
+    date: "June 2025",
     rating: 5,
-    testimonial: "Faizan developed an educational platform for our department that has transformed how we deliver content to students. His technical skills combined with his understanding of educational needs created a solution that is both powerful and user-friendly. The platform's responsive design works perfectly on all devices, and the backend integration with our existing systems was seamless. Faizan's work has made a significant positive impact on our teaching capabilities."
+    testimonial: "Faizan's teaching approach during the web development workshop was excellent. He explained complex concepts in simple terms and provided hands-on exercises that helped us build our first websites. His patience and willingness to help each participant individually made the learning experience enjoyable and effective."
   }
 ];
 
